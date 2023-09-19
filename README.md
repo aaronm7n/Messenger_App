@@ -16,7 +16,7 @@ Instructor: Dr. Nick Stiffler
 ## Team Members (Individual)
 
 1. Jonathan Pieroni | pieronij2@udayton.edu
-2. Daniel Lambert   | 
+2. Daniel Lambert   | lambertd4@udayton.edu
 3. Joseph Johnson   |
 4. Aaron McClellan  |
 
@@ -43,11 +43,22 @@ Currently working on the basis of our project.
 
 List user requirements of the project that the team will develop into use cases in later steps.
 
-- Requirement 
-- Requirement 
-- Requirement
+- A user can register for access 
+- A user can login 
+- A user can logout
+- A logged in user can send a message
+- A logged in user can recieve a message
+- An unregistered user cannot send or recieve messages
 
 ### Use Cases
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "https://i.imgur.com/9AZyuaW.png" />
+</p>
 
 Draw the overview use case diagram, and define brief use case description for each use case.
 
@@ -64,13 +75,6 @@ _(Coming soon)_
 _(Coming soon)_
 
 ### User Interface
-
-<img  
-    style="padding: 0px 0px 0px 20px" 
-    width="200" 
-    height="200"
-    src= "https://imgur.com/iFCWQdt.png" />
-
 
 _(Coming soon)_
 
