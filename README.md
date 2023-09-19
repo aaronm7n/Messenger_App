@@ -1,5 +1,5 @@
-# cps490-23f-pieronij2
-*Description*: Jonathan Pieroni's Fall 2023 CPS 490  - Individual Repository
+# cps490-23f-team7
+*Description*: Team 7's Fall 2023 CPS 490  - Group Repository
 
 ## About
 
@@ -16,12 +16,15 @@ Instructor: Dr. Nick Stiffler
 ## Team Members (Individual)
 
 1. Jonathan Pieroni | pieronij2@udayton.edu
+2. Daniel Lambert   | 
+3. Joseph Johnson   |
+4. Aaron McClellan  |
 
 ## Project Management Information
 
-Management board (private access will update to correct course number in future): <https://trello.com/w/cps470capstone1project>
+Management board (private access will update to correct course number in future): <https://trello.com/b/txjCjXfN/capstone-1-project>
 
-Source code repository (private access): <https://github.com/jjpieroni-edu/cps490-23f-pieronij2>
+Source code repository (private access): <https://github.com/lambertd4/Capstone1>
 
 ## Revision History
 
@@ -31,7 +34,7 @@ Source code repository (private access): <https://github.com/jjpieroni-edu/cps49
 
 ## Overview
 
-Currently doing the indidual assignment 1. 
+Currently working on the basis of our project.
 
 
 ## System Analysis
@@ -105,10 +108,10 @@ Duration: dd/mm/yyyy-dd/mm/yyyy
 
 ##### Contributions:
 
-1.  Member 1, x hours, contributed in xxx
-2.  Member 2, x hours, contributed in xxx
-3.  Member 3, x hours, contributed in xxx
-4.  Member 4, x hours, contributed in xxx
+1.  Jonathan Pieroni, x hours, contributed in xxx
+2.  Daniel Lambert,   x hours, contributed in xxx
+3.  Joseph Johnson,   x hours, contributed in xxx
+4.  Aaron McClellan,  x hours, contributed in xxx
 
 ##### Sprint Retrospective
 
