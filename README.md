@@ -17,8 +17,8 @@ Instructor: Dr. Nick Stiffler
 
 1. Jonathan Pieroni | pieronij2@udayton.edu
 2. Daniel Lambert   | lambertd4@udayton.edu
-3. Joseph Johnson   |
-4. Aaron McClellan  |
+3. Joseph Johnson   | johnsonj73@udayton.edu
+4. Aaron McClellan  | mcclellana4@udayton.edu
 
 ## Project Management Information
 
@@ -63,14 +63,18 @@ List user requirements of the project that the team will develop into use cases 
 Draw the overview use case diagram, and define brief use case description for each use case.
 
 ### Use Case Description
--An unregistered user will be able to register and become a registered user but will not be able to send or receive messages while unregistered.
 
--Once a user is registered they will be able to login, logout, send, and receive messages.
+- An unregistered user will be able to register and become a registered user but will not be able to send or receive messages while unregistered.
 
+- Once a user is registered they will be able to login, logout, send, and receive messages.
 
 ### Overview diagram
 
+_(Coming Soon)_
+
 ## System Design
+
+_(Coming Soon)_
 
 ### Use-Case Realization
 
@@ -97,6 +101,8 @@ database, development, testing, and deployment environments.
 
 Describe how to deploy your system in a specific platform.
 
+_(Coming soon)_
+
 ## Software Process Management
 
 Include the Trello board with product backlog and sprint cycles in an overview
@@ -109,21 +115,14 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 #### Sprint 0
 
-Duration: 18/09/2023-dd/mm/yyyy
-
-Research for the programing language for front end and back end.
-Use case Diagram and use cases started.
-
-
-#### Sprint x
-
-Duration: dd/mm/yyyy-dd/mm/yyyy
+Duration: 18/09/2023 - 21/09/2023
 
 ##### Completed Tasks
 
-1. Task 1
-2. Task 2
-3. ...
+1. Research angular.js and react.js for viable technologies
+2. Research socket.io and vue.js for viable technologies
+3. Use case Diagram and use cases desciptions created.
+4. Modify README.md to fulfil requirements for Team assignment 1.
 
 ##### Contributions:
 
@@ -158,7 +157,4 @@ dynamics well. Mention the bullet points and discuss how to solve it.)_
 
 ## User Gude/Demo
 
-Write as a demo with screenshots and as a guide for users to use your system.
-
-
-# Lecture Notes
+_(Coming Soon)_
