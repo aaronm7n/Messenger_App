@@ -62,6 +62,11 @@ List user requirements of the project that the team will develop into use cases 
 
 Draw the overview use case diagram, and define brief use case description for each use case.
 
+### Use Case Description
+-An unregistered user will be able to register and become a registered user but will not be able to send or receive messages while unregistered.
+-Once a user is registered they will be able to login, logout, send, and receive messages.
+
+
 ### Overview diagram
 
 ## System Design
