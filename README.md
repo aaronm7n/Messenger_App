@@ -96,9 +96,18 @@ Describe how to deploy your system in a specific platform.
 Include the Trello board with product backlog and sprint cycles in an overview
 figure.
 
+
 Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 ### Scrum Process
+
+#### Sprint 0
+
+Duration: 18/09/2023-dd/mm/yyyy
+
+Research for the programing language for front end and back end.
+Use case Diagram and use cases started.
+
 
 #### Sprint x
 
