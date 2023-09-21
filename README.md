@@ -219,11 +219,12 @@ With the overall popularity and the amount of companies using vue.js it is not s
 * Vues community and development team size is still incomparable with more mature Angular or React. Neither does it enjoy financial support from large enterprises. This makes it hard to produce larger products
 * While the ecosystem is pretty wide, and there are all the required tools to start developing with Vue, its still not as big as React or Angular.
 * Vue.js is a relatively young technology that just started gaining popularity. But it seems we have to wait a couple of years until its mass adoption with the labor market filled with experienced Vue.js developers.
-# Angular
+
+### Angular
 
 Angular is a MVC(model view controller) architecture. It's primary framework is written in TypeScript, which is very similar to JavaScript. Popular websites that use Angular include: Gmail, Microsoft office applications, and many Samsung built applications. Angular's use in Gmail, and many other Google projects, could be beneficial to know due to it's similarities with the goals of the messenger project.
 
-## Features
+#### Features
 - **Document Object Model(DOM)** Angular's DOM treats an XML or HTML document as a tree structure, with nodes representing parts of the document
 - **TypeScript** TypeScript defines a set of types to JavaScript, and is very similar. It is meant to be easier to understand than JavaScript. Angular can run without use of TypeScript, but it is highly recommended to use it
 - **Data Binding** Angular uses two way binding, allowing the model state to reflect changes made in their corresponding UI elements, and the UI reflects changes to the model state
@@ -233,30 +234,30 @@ Angular is a MVC(model view controller) architecture. It's primary framework is 
 - **Metadata** Metadata tells angular how to process classes and is used to decorate the class and configure the expected behavior of that class
 - **Dependency Injection** Instead of fetching data from the server or logging directly to the console, Angular delegates tasks among it's service classes, which it creates for data that isn't associated with the view but also has to be shared across components
 
-## Pros
+#### Pros
 - Uses Typescript, a similar language to JavaScript that aids the maintainability of code
 - Familiar with MVC architecture
 - Easy unit testing
 - Reusable components
 
-## Cons
+#### Cons
 - Typescript can be difficult to learn 
 - Complicated component management and Angular specific 3rd party libraries 
 - Hard learning curve
 
-## Useful Material
+#### Useful Material
 - https://angular.io/tutorial/first-app
 - https://www.w3schools.com/angular/
 - https://www.simplilearn.com/tutorials/angular-tutorial/what-is-angular
 
-## Overall
+#### Overall
 -- Angular is said to have a steeper learning curve than React. It may be good for small to mid sized projects, which our application would fit into, however with the learning curve presented through research of Angular it seems as if maybe for a application meant for gaining an understanding of the development process that maybe Angular is not the right tool for us. 
 
-# React
+### React
 
 React is a popular open source JavaScript library.  It is a MVC model and is known for it's improved speed of applications. React is used in several applications, including: Facebook, Netflix, and Yahoo. Similar to Angular's use in Gmail, React's use in Facebook may show that React is suitable for applications like the messenger project.
 
-## Features
+#### Features
 - **Virtual DOM** React's virtual DOM aims to be faster than traditional DOM by only updating objects modified instead of the entire DOM
 - **JSX** JSX is a JavaScript syntax extension that allows you to write HTML structures in the same files as JavaScript code
 - **Extensions** React contains a very significant database of UI framework that can expand your tools used to program
@@ -266,7 +267,7 @@ React is a popular open source JavaScript library.  It is a MVC model and is kno
 - **Props** Props allow the user to pass arguments or data to components, helping to make them more dynamic. They can only be read, and not changed
 - **State** A State is an object that stores property values for those attributed to a component that would change overtime
 
-## Pros
+#### Pros
 - Easier to learn and use
 - Team experienced with JavaScript language
 - Rich JavaScript library
@@ -274,11 +275,11 @@ React is a popular open source JavaScript library.  It is a MVC model and is kno
 - Reusable components
 
 
-## Cons
+#### Cons
 - ReactJS covers only UI layers of app. Need for additional technologies for additional tools
 - Use of JSX syntax extension, which is reportedly difficult for developers to learn
 
-## Useful Material
+#### Useful Material
 - https://react.dev/learn/tutorial-tic-tac-toe
 - https://www.w3schools.com/REACT/DEFAULT.ASP
 - https://www.simplilearn.com/tutorials/reactjs-tutorial/what-is-reactjs
@@ -310,7 +311,7 @@ Duration: 18/09/2023 - 21/09/2023
 1.  Jonathan Pieroni, x hours, contributed in xxx
 2.  Daniel Lambert,   x hours, contributed in xxx
 3.  Joseph Johnson,   x hours, contributed in xxx
-4.  Aaron McClellan,  x hours, contributed in xxx
+4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
 ##### Sprint Retrospective
 
@@ -334,7 +335,8 @@ dynamics well. Mention the bullet points and discuss how to solve it.)_
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
-|          |                             |                   |
+| Once goals were evventually established we excelled at our goals | Initial Goal Orientation  |Establish specific goals between eachother more efficiently|
+| Once we had an efficient way of comunicating we had great communication | Meeting planning | Establish a more routine time to meet with the team |
 
 ## User Guide/Demo
 
