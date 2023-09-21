@@ -219,6 +219,70 @@ With the overall popularity and the amount of companies using vue.js it is not s
 * Vues community and development team size is still incomparable with more mature Angular or React. Neither does it enjoy financial support from large enterprises. This makes it hard to produce larger products
 * While the ecosystem is pretty wide, and there are all the required tools to start developing with Vue, its still not as big as React or Angular.
 * Vue.js is a relatively young technology that just started gaining popularity. But it seems we have to wait a couple of years until its mass adoption with the labor market filled with experienced Vue.js developers.
+# Angular
+
+Angular is a MVC(model view controller) architecture. It's primary framework is written in TypeScript, which is very similar to JavaScript. Popular websites that use Angular include: Gmail, Microsoft office applications, and many Samsung built applications. Angular's use in Gmail, and many other Google projects, could be beneficial to know due to it's similarities with the goals of the messenger project.
+
+## Features
+- **Document Object Model(DOM)** Angular's DOM treats an XML or HTML document as a tree structure, with nodes representing parts of the document
+- **TypeScript** TypeScript defines a set of types to JavaScript, and is very similar. It is meant to be easier to understand than JavaScript. Angular can run without use of TypeScript, but it is highly recommended to use it
+- **Data Binding** Angular uses two way binding, allowing the model state to reflect changes made in their corresponding UI elements, and the UI reflects changes to the model state
+- **Jasmine Testing Framework** This framework aims to ease testing with different and effective test cases
+- **Components** Every component in an Angular application defines a class that holds the application's logic and data, and defines part of the UI
+- **Templates** Angular's template combines markup and HTML in order to modify HTML elements before they are displayed
+- **Metadata** Metadata tells angular how to process classes and is used to decorate the class and configure the expected behavior of that class
+- **Dependency Injection** Instead of fetching data from the server or logging directly to the console, Angular delegates tasks among it's service classes, which it creates for data that isn't associated with the view but also has to be shared across components
+
+## Pros
+- Uses Typescript, a similar language to JavaScript that aids the maintainability of code
+- Familiar with MVC architecture
+- Easy unit testing
+- Reusable components
+
+## Cons
+- Typescript can be difficult to learn 
+- Complicated component management and Angular specific 3rd party libraries 
+- Hard learning curve
+
+## Useful Material
+- https://angular.io/tutorial/first-app
+- https://www.w3schools.com/angular/
+- https://www.simplilearn.com/tutorials/angular-tutorial/what-is-angular
+
+## Overall
+-- Angular is said to have a steeper learning curve than React. It may be good for small to mid sized projects, which our application would fit into, however with the learning curve presented through research of Angular it seems as if maybe for a application meant for gaining an understanding of the development process that maybe Angular is not the right tool for us. 
+
+# React
+
+React is a popular open source JavaScript library.  It is a MVC model and is known for it's improved speed of applications. React is used in several applications, including: Facebook, Netflix, and Yahoo. Similar to Angular's use in Gmail, React's use in Facebook may show that React is suitable for applications like the messenger project.
+
+## Features
+- **Virtual DOM** React's virtual DOM aims to be faster than traditional DOM by only updating objects modified instead of the entire DOM
+- **JSX** JSX is a JavaScript syntax extension that allows you to write HTML structures in the same files as JavaScript code
+- **Extensions** React contains a very significant database of UI framework that can expand your tools used to program
+- **Data Binding** React uses one-way binding, providing a simple undirected dataflow for it's users.
+- **Debugging** React is a very popular web development tool, which means that there is a large database of knowledge by the community that supports React. Meta provides a browser extension for simplified debugging in React.
+- **Components** Components are React's building blocks for it's UI. React components are built for reusability, nested components, it's render method, and it's passing of properties. Props and State help to aid the dynamic use of it's components
+- **Props** Props allow the user to pass arguments or data to components, helping to make them more dynamic. They can only be read, and not changed
+- **State** A State is an object that stores property values for those attributed to a component that would change overtime
+
+## Pros
+- Easier to learn and use
+- Team experienced with JavaScript language
+- Rich JavaScript library
+- Virtual DOM, which fixes problems with DOM API updates
+- Reusable components
+
+
+## Cons
+- ReactJS covers only UI layers of app. Need for additional technologies for additional tools
+- Use of JSX syntax extension, which is reportedly difficult for developers to learn
+
+## Useful Material
+- https://react.dev/learn/tutorial-tic-tac-toe
+- https://www.w3schools.com/REACT/DEFAULT.ASP
+- https://www.simplilearn.com/tutorials/reactjs-tutorial/what-is-reactjs
+
 
 ## Software Process Management
 
