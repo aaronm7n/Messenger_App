@@ -304,14 +304,11 @@ Trello for Sprint 0.
 
 <img  
     style="padding: 0px 0px 0px 20px" 
-    width="450" 
-    height="450"
     src= "https://i.imgur.com/pMLtd9P.png" />
 
 Commits for Sprint 0.
 <img  
-style="padding: 0px 0px 0px 20px"    width="450" 
-height="450"
+style="padding: 0px 0px 0px 20px"
 src= "https://i.imgur.com/iyQVzya.png" />    
 
 
@@ -331,23 +328,6 @@ src= "https://i.imgur.com/iyQVzya.png" />
 
 ##### Sprint Retrospective
 
-_Working through the sprints is a continuous improvement process. Discussing
-the sprint that has just completed can provide insight/retrospection that will 
-make future sprints more efficient. Sprint retrospection is done once a sprint is finished and the
-team is ready to start another sprint planning meeting. This discussion can
-take up to 1 hour depending on the team size.  Discussing
-good things happened during the sprint can improve the team's morale, good
-team-collaboration, appreciating someone who did a fantastic job to solve a
-blocker issue, work well-organized, helping someone in need. This is to improve
-the team's confidence and keep them motivated.  As a team, we can discuss what
-has gone wrong during the sprint and come-up with improvement points for the
-next sprints. Few points can be like, need to manage time well, need to
-prioritize the tasks properly and finish a task in time, incorrect design lead
-to multiple reviews and that wasted time during the sprint, team meetings were
-too long which consumed most of the effective work hours. We can mention every
-problem is in the sprint which is hindering the progress.  Finally, this
-meeting should improve your next sprint drastically and understand the team
-dynamics well. Mention the bullet points and discuss how to solve it.)_
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
