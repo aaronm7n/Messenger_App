@@ -308,6 +308,12 @@ Trello for Sprint 0.
     height="450"
     src= "https://i.imgur.com/pMLtd9P.png" />
 
+Commits for Sprint 0.
+<img  
+style="padding: 0px 0px 0px 20px"    width="450" 
+height="450"
+src= "https://i.imgur.com/iyQVzya.png" />    
+
 
 ##### Completed Tasks
 
