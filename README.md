@@ -310,7 +310,7 @@ Duration: 18/09/2023 - 21/09/2023
 
 1.  Jonathan Pieroni, x hours, contributed in xxx
 2.  Daniel Lambert,   x hours, contributed in xxx
-3.  Joseph Johnson,   x hours, contributed in xxx
+3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
 4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
 ##### Sprint Retrospective
@@ -337,6 +337,7 @@ dynamics well. Mention the bullet points and discuss how to solve it.)_
 |----------|:---------------------------:|------------------:|
 | Once goals were evventually established we excelled at our goals | Initial Goal Orientation  |Establish specific goals between eachother more efficiently|
 | Once we had an efficient way of comunicating we had great communication | Meeting planning | Establish a more routine time to meet with the team |
+| Met in person at library and capstone room | Library room was very small, Capstone room is other side of campus for all members | Establish meeting place at appropriate sized library room or house |
 
 ## User Guide/Demo
 
