@@ -299,6 +299,16 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 Duration: 18/09/2023 - 21/09/2023
 
+Trello for Sprint 0.
+
+
+<img  
+    style="padding: 0px 0px 0px 20px" 
+    width="450" 
+    height="450"
+    src= "https://i.imgur.com/pMLtd9P.png" />
+
+
 ##### Completed Tasks
 
 1. Research angular.js and react.js for viable technologies
