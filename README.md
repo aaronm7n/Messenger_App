@@ -11,9 +11,21 @@ CPS 490 -- Capstone I -- Fall 2023
 
 Instructor: Dr. Nick Stiffler
 
+## Table of Contents
+- [Team Members](#team-members)
+- [Project Management Information](#project-management-information)
+- [Revision History](#revision-history)
+- [Overview](#overview)
+- [System Analysis](#system-analysis)
+- [System Design](#system-design)
+- [Implementation](#implementation)
+- [Viable Technologies](#viable-technologies)
+- [Software Process Managment](#software-process-management)
+- [User Guide/Demo](#user-guidedemo)
+
 # Case Study: Messenger Application
 
-## Team Members (Individual)
+## Team Members
 
 1. Jonathan Pieroni | pieronij2@udayton.edu
 2. Daniel Lambert   | lambertd4@udayton.edu
