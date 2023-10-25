@@ -305,9 +305,27 @@ figure.
 
 Also, include a Gantt chart that reflects the timeline from the Trello board.
 
-### Scrum Process
+## Scrum Process
 
-#### Sprint 0
+### Scrum Meetings
+
+**Phase 0**
+1. Meeting on 9/19/23
+	Discussed who Researched and who did work on read me.
+	Danny- Use Case Diagram and README
+	Joe- Angular and React
+	Aaron- Socket and View
+	Jon- Trello Board and some README
+
+**Phase 1**
+1. Meeting on 10/24/23
+	Discussed who developes each use case. WOrked out work distribution for this phase.
+	Danny- Use Case Diagrams/Descriptions
+	Joe- Login
+	Aaron- Registration
+	Jon- Registration
+
+### Sprint 0
 
 Duration: 18/09/2023 - 21/09/2023
 
@@ -323,22 +341,29 @@ Commits for Sprint 0.
 style="padding: 0px 0px 0px 20px"
 src= "https://i.imgur.com/iyQVzya.png" />    
 
+### Sprint 1
 
-##### Completed Tasks
+Trello for Sprint 1.
+Insert Image
+
+Commits for Sprint 1.
+Insert Image
+
+#### Completed Tasks
 
 1. Research angular.js and react.js for viable technologies
 2. Research socket.io and vue.js for viable technologies
 3. Use case Diagram and use cases desciptions created.
 4. Modify README.md to fulfil requirements for Team assignment 1.
 
-##### Contributions:
+#### Contributions:
 
 1.  Jonathan Pieroni, x hours, contributed in xxx
 2.  Daniel Lambert,   x hours, contributed in xxx
 3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
 4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
-##### Sprint Retrospective
+#### Sprint Retrospective
 
 
 | Good     |   Could have been better    |  How to improve?  |
