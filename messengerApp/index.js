@@ -31,7 +31,9 @@ const User = require('./models/user');
 
 // View setup
 app.set('view engine', 'pug');
-app.set('views', './views')
+app.set('views', './views');
+
+app.use('/css', express.static('css'));
 
 // Middleware setup
 app.use(bodyParser.json());
@@ -39,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 app.use(cookieParser());
 app.use(session({secret: "Apple"}));
-app.use('/css', express.static('css'));
+
 
 // Signup GET Request
 app.get('/signup', (req, res) => {

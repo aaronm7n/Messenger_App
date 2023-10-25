@@ -1,16 +1,17 @@
 doctype html
 html 
     head 
-        title = Signup 
+        title Signup 
+        link(rel="stylesheet" href="/css/signup.css")
     body 
         if(message)
             h4 #{message}
         form(action = "/signup", method = "POST")
-                div 
+                div(class="div-username") 
                     label(for = "username") Username: 
                     input(name = "username")
                 br
-                div 
+                div(class="div-password")
                     label(for = "password") Password: 
                     input(name = "password")
                 br
