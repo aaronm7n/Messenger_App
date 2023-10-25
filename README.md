@@ -312,18 +312,18 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 **Phase 0**
 1. Meeting on 9/19/23
 	Discussed who Researched and who did work on read me.
-	Danny- Use Case Diagram and README
-	Joe- Angular and React
-	Aaron- Socket and View
-	Jon- Trello Board and some README
+	- Danny- Use Case Diagram and README
+	- Joe- Angular and React
+	- Aaron- Socket and View
+	- Jon- Trello Board and some README
 
 **Phase 1**
 1. Meeting on 10/24/23
 	Discussed who developes each use case. WOrked out work distribution for this phase.
-	Danny- Use Case Diagrams/Descriptions
-	Joe- Login
-	Aaron- Registration
-	Jon- Registration
+	- Danny- Use Case Diagrams/Descriptions
+	- Joe- Login
+	- Aaron- Registration
+	- Jon- Registration
 
 ### Sprint 0
 
