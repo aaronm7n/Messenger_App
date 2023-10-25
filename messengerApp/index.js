@@ -27,6 +27,8 @@ db.once("open", () => {
     console.log("Connected successfully to MongoDB");
 })
 
+const User = require('./models/user');
+
 // View setup
 app.set('view engine', 'pug');
 app.set('views', './views')
