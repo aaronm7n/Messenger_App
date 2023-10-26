@@ -9,8 +9,8 @@ const upload = multer();
 
 const port = process.env.PORT || 3000;
 
-const username = "mcclellana4"
-const password = "aIPQf0amOPaHchbI"
+const username = "admin"
+const password = "5Vb5EswuNxFZgD6haIPQf0amOPaHchbI"
 const cluster = "messengerdb.rsgrfzu";
 const dbname = ""; // defaults to "test" if left blank
 
