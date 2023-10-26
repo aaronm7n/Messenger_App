@@ -10,7 +10,7 @@ const upload = multer();
 const port = process.env.PORT || 3000;
 
 const username = "admin"
-const password = "5Vb5EswuNxFZgD6haIPQf0amOPaHchbI"
+const password = "5Vb5EswuNxFZgD6h"
 const cluster = "messengerdb.rsgrfzu";
 const dbname = ""; // defaults to "test" if left blank
 
@@ -75,26 +75,32 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.post('/login', (req,res) => {
-    if(!req.body.id || !req.body.password){
+
+app.post('/login', async (req,res) => {
+    const { id, password } = req.body// cleans up comparing id and password
+
+    if(!id || !password){
         res.render('login', {message: "Please enter both id and password"});
         return;
-    }//username 
+    }
 
-    let user = Users.find( (element) => {
-        return element.id === req.body.id && element.password === req.body.password;
-    });
+    const user = await User.findOne({ username: id});
+    // cant believe this worked but ok 
+    // finds user in database
+    
+    if(!user){
+        return res.render('login', { message: "Hey you arent a user! Sign Up!"})
+    }
 
-    console.log("<Login> Find: ", user);
-    if (user === undefined || user === null) {
-        res.render('login', {message: "Invalid credentials!"});
-        return;
-    } else {
+    if(user.password === password){
         req.session.user = user;
-        res.redirect('/protected_page');
-        return;
+        return res.redirect('/protected_page')
+    }
+    else{
+        return res.render('login', { message: "Uh oh! Invalid Credentials!"})
     }
 });
+
 
 app.get('/logout', (req, res) => {
     let user = req.session.user.id;
@@ -102,6 +108,23 @@ app.get('/logout', (req, res) => {
         console.log(`${user} logged out.`)
     });
     res.redirect('/login');
+});
+
+const checkSignIn = (req, res, next) => {
+    if(req.session.user){
+        
+        return next(); //If session exists, proceed to page
+    } else {
+        const err = new Error("Not logged in!");
+        err.status = 400;
+        return next(err); //Error, trying to access unauthorized page!
+    }
+};
+    
+
+app.get('/protected_page', checkSignIn, (req, res) => {
+    const username = req.session.user.username; // Get the username from the session for message
+    res.render('protected_page', {id: username})
 });
 
 app.use('/protected_page', (err, req, res, next) => {
