@@ -71,6 +71,43 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.post('/login', (req,res) => {
+    if(!req.body.id || !req.body.password){
+        res.render('login', {message: "Please enter both id and password"});
+        return;
+    }//username 
+
+    let user = Users.find( (element) => {
+        return element.id === req.body.id && element.password === req.body.password;
+    });
+
+    console.log("<Login> Find: ", user);
+    if (user === undefined || user === null) {
+        res.render('login', {message: "Invalid credentials!"});
+        return;
+    } else {
+        req.session.user = user;
+        res.redirect('/protected_page');
+        return;
+    }
+});
+
+app.get('/logout', (req, res) => {
+    let user = req.session.user.id;
+    req.session.destroy( () => {
+        console.log(`${user} logged out.`)
+    });
+    res.redirect('/login');
+});
+
+app.use('/protected_page', (err, req, res, next) => {
+    res.redirect('/login');
+});
+
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
     res.send('Sorry, this is an invalid URL.');
