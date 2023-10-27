@@ -46,15 +46,8 @@ const signup = require('./routes/signup.js');
 app.use('/signup', signup);
 const login = require('./routes/login.js');
 app.use('/login', login);
-
-// Logout GET Request and Redirection to Login
-app.get('/logout', (req, res) => {
-    let username = req.session.user.username;
-    req.session.destroy( () => {
-        console.log(`${username} logged out.`)
-    });
-    res.redirect('/login');
-});
+const logout = require('./routes/logout');
+app.use('/logout', logout);
 
 const checkSignIn = (req, res, next) => {
     if(req.session.user){
