@@ -42,39 +42,10 @@ app.use(session({secret: "Apple"}));
 app.use('/css', express.static('css'));
 
 // Routing setup
-const signup = require('./routes/signup.js')
+const signup = require('./routes/signup.js');
 app.use('/signup', signup);
-
-// Login GET Request
-app.get('/login', (req, res) => {
-    res.render('login');
-});
-
-// Login POST Request
-app.post('/login', async (req,res) => {
-    const { id, password } = req.body// cleans up comparing id and password
-
-    if(!id || !password){
-        res.render('login', {message: "Please enter both id and password"});
-        return;
-    }
-
-    const user = await User.findOne({ username: id});
-    // cant believe this worked but ok 
-    // finds user in database
-    
-    if(!user){
-        return res.render('login', { message: "Hey you arent a user! Sign Up!"})
-    }
-
-    if(user.password === password){
-        req.session.user = user;
-        return res.redirect('/protected_page')
-    }
-    else{
-        return res.render('login', { message: "Uh oh! Invalid Credentials!"})
-    }
-});
+const login = require('./routes/login.js');
+app.use('/login', login);
 
 // Logout GET Request and Redirection to Login
 app.get('/logout', (req, res) => {

@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 
         // This prevents ant duplicate usernames
         const user = await User.findOne({ username: newUser.username });
-        if(user){
+        if(!user){
             newUser.save()
             .then( (result) => {
                 res.render('signup_results', {message: "New user added", type: "success", user: userInfo});
