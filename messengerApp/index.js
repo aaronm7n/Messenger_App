@@ -41,36 +41,9 @@ app.use(cookieParser());
 app.use(session({secret: "Apple"}));
 app.use('/css', express.static('css'));
 
-// Signup GET Request
-app.get('/signup', (req, res) => {
-    res.render('signup');
-});
-
-// Signup POST Request
-app.post('/signup', async (req, res) => {
-    var userInfo = await req.body; // Get the parsed information
-    if(!userInfo.username || !userInfo.password) {
-        res.render('signup_results', {
-            message: "Sorry, you have not provided all of the rquired information",
-            type: "error"
-        });
-    }
-    else {
-        var newUser = new User({
-            username: userInfo.username,
-            password: userInfo.password
-        });
-
-        newUser.save()
-        .then( (result) => {
-            res.render('signup_results', {message: "New user added", type: "success", user: userInfo});
-        })
-        .catch( (err) => {
-            res.render('signup_results', {message: "Database error", type: "error"})
-        })
-    }
-});
-
+// Routing setup
+const signup = require('./routes/signup.js')
+app.use('/signup', signup);
 
 // Login GET Request
 app.get('/login', (req, res) => {
