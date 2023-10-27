@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
 
 // Logout GET Request and Redirection to Login
 router.get('/', (req, res) => {

@@ -27,8 +27,6 @@ db.once("open", () => {
     console.log("Connected successfully to MongoDB");
 });
 
-const User = require('./models/user');
-
 // View setup
 app.set('view engine', 'pug');
 app.set('views', './views')
@@ -48,27 +46,8 @@ const login = require('./routes/login.js');
 app.use('/login', login);
 const logout = require('./routes/logout');
 app.use('/logout', logout);
-
-const checkSignIn = (req, res, next) => {
-    if(req.session.user){
-        
-        return next(); //If session exists, proceed to page
-    } else {
-        const err = new Error("Not logged in!");
-        err.status = 400;
-        return next(err); //Error, trying to access unauthorized page!
-    }
-};
-    
-
-app.get('/protected_page', checkSignIn, (req, res) => {
-    const username = req.session.user.username; // Get the username from the session for message
-    res.render('protected_page', {id: username})
-});
-
-app.use('/protected_page', (err, req, res, next) => {
-    res.redirect('/login');
-});
+const protected_page = require ('./routes/protected_page.js');
+app.use('/protected_page', protected_page);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
