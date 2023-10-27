@@ -46,7 +46,7 @@ app.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-// Signup POST Request (Still need to create User schema)
+// Signup POST Request
 app.post('/signup', async (req, res) => {
     var userInfo = await req.body; // Get the parsed information
     if(!userInfo.username || !userInfo.password) {
@@ -71,11 +71,13 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+
+// Login GET Request
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
-
+// Login POST Request
 app.post('/login', async (req,res) => {
     const { id, password } = req.body// cleans up comparing id and password
 
@@ -101,11 +103,11 @@ app.post('/login', async (req,res) => {
     }
 });
 
-
+// Logout GET Request and Redirection to Login
 app.get('/logout', (req, res) => {
-    let user = req.session.user.id;
+    let username = req.session.user.username;
     req.session.destroy( () => {
-        console.log(`${user} logged out.`)
+        console.log(`${username} logged out.`)
     });
     res.redirect('/login');
 });
