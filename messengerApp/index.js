@@ -46,10 +46,11 @@ const signup = require('./routes/signup.js');
 app.use('/signup', signup);
 const login = require('./routes/login.js');
 app.use('/login', login);
-const logout = require('./routes/logout');
+const logout = require('./routes/logout.js');
 app.use('/logout', logout);
-const protected_page = require ('./routes/protected_page.js');
+const protected_page = require('./routes/protected_page.js');
 app.use('/protected_page', protected_page);
+
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {

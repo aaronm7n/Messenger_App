@@ -1,11 +1,10 @@
 doctype html
 html 
     head 
-        style 
-            include stylesheet.css
         title Signup Results 
     body    
         if(type == "error")
             h3(style = "color:red") #{message}
+            a(href="/signup") Go Back?
         else 
             h3 New User, #{user.username} has been created!

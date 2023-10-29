@@ -1,14 +1,14 @@
 doctype html
 html 
     head 
-        style 
-            include stylesheet.css
         title Signup 
         link(rel="stylesheet" href="/css/signup.css")
     body 
         if(message)
             h4 #{message}
         form(action = "/signup", method = "POST")
+            div(class="div-wrapper")
+                h1 Sign Up!
                 div(class="div-username") 
                     label(for = "username") Username: 
                     input(name = "username")
