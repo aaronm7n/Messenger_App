@@ -27,8 +27,6 @@ db.once("open", () => {
     console.log("Connected successfully to MongoDB");
 });
 
-const User = require('./models/user');
-
 // View setup
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -43,35 +41,15 @@ app.use(cookieParser());
 app.use(session({secret: "Apple"}));
 
 
-// Signup GET Request
-app.get('/signup', (req, res) => {
-    res.render('signup');
-});
-
-// Signup POST Request (Still need to create User schema)
-app.post('/signup', async (req, res) => {
-    var userInfo = await req.body; // Get the parsed information
-    if(!userInfo.username || !userInfo.password) {
-        res.render('signup_results', {
-            message: "Sorry, you have not provided all of the rquired information",
-            type: "error"
-        });
-    }
-    else {
-        var newUser = new User({
-            username: userInfo.username,
-            password: userInfo.password
-        });
-
-        newUser.save()
-        .then( (result) => {
-            res.render('signup_results', {message: "New user added", type: "success", user: userInfo});
-        })
-        .catch( (err) => {
-            res.render('signup_results', {message: "Database error", type: "error"})
-        })
-    }
-});
+// Routing setup
+const signup = require('./routes/signup.js');
+app.use('/signup', signup);
+const login = require('./routes/login.js');
+app.use('/login', login);
+const logout = require('./routes/logout');
+app.use('/logout', logout);
+const protected_page = require ('./routes/protected_page.js');
+app.use('/protected_page', protected_page);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
