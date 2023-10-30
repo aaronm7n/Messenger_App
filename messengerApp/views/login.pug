@@ -1,17 +1,20 @@
 html
     head
         title Login
+        link(rel="stylesheet" href="/css/login.css")
     body.centered
         if(message)
             h4 #{message}
         form(action = "/login" method = "POST")
-            div 
+            div(class="div-wrapper")
                 h1 Login here!
-            div
-                input(name = "id" type = "text" required placeholder = "User ID")
-            div.white-text
-                style(color: white)
-                input(name = "password" type = "password" required placeholder = "Password")
-            button(type = "Submit") Log in
+                div(class="div-username") 
+                    input(name = "id" type = "text" required placeholder = "User ID")
+                br
+                div(class="div-password")
+                    style(color: white)
+                    input(name = "password" type = "password" required placeholder = "Password")
+                br
+                button(type = "Submit") Log in
 
         
