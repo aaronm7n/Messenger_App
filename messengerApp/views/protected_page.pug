@@ -1,25 +1,23 @@
 html
     head 
-        title Protected page 
+        title Protected page
+        link(rel="stylesheet" href="/css/protected_page.css") 
     body 
-        div Hey #{id}, you have a lovely name by the way, How are you doing today?
-        div Want to update your information? Click on update!
-        div
-            p 
-                a(href="/update") Update
-        div Hey #{id}, you have a lovely name by the way, How are you doing today?
-        div Want to update your information? Click on update!
-        div
-            p 
-                a(href="/update") Update
         div(class="div-wrapper")
             br
             div(class="div-wrapper2")
                 h1 Hey #{id}, you have a lovely name by the way, How are you doing today?
             br
             div(class="div-wrapper3") 
-                h1 Want to log out? Click the button!!!
+
+                h1 Want to update your information? Click on update!
             br
-            div(class="logout-wrapper") 
-                a(href="/logout") Logout
+            div(class="div-wrapper4") 
+                h1 Want to log out? Click logout!!!
             br
+            div(class="div-wrapper5")
+                    a(href="/update")
+                        button Update
+                    a(href="/logout") 
+                        button Logout
+

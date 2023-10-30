@@ -1,7 +1,7 @@
 .div-wrapper{
     background-color: #1f0f66;
     width: 350px;
-    height: 400px;
+    height: 450px;
     margin: auto;
     border-radius: 50px;
     border: 5px solid #40124C;
@@ -14,7 +14,8 @@
     border-radius: 20px;
     border: 5px solid #40124C;
 }
-.div-wrapper3{
+.div-wrapper3,
+.div-wrapper4{
     background-color: #880085;
     width: 300px;
     height: 80px;
@@ -22,13 +23,26 @@
     border-radius: 20px;
     border: 5px solid #40124C;
 }
-.logout-wrapper{
-    background-color: #ffffff;
-    width: 55px;
-    height: 20px;
-    margin: auto;
+
+
+a{
+    display: inline-block;
+}
+
+button{
+    display: inline-block;
+    border: 5px solid #40124C;
+    background-color: #880085;
+    color: white;
     border-radius: 50px;
-    border: 5px solid #1f0f66;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 5px;
+    height: 50px;
+    width: 100px;
+    font-family: courier;
+    font-size: 18px;
+    text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
 }
 h1 {
     text-align: center;
