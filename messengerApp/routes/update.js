@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
 
 
 const checkSignIn = (req, res, next) => {
@@ -74,9 +76,10 @@ router.post('/', async (req, res) => {
         } */
 
         if(password){
+            var hashed = await bcrypt.hashSync(password, salt);
             await User.findOneAndUpdate(
                 { username: username},
-                { password: password },
+                { password: hashed },
                 { new: true }
             );
             res.render('update', {
