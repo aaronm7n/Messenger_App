@@ -1,0 +1,10 @@
+doctype html
+html 
+    head 
+        title Profile Deleted 
+    body    
+        if(type == "error")
+            h3(style = "color:red") #{message}
+        else 
+            h3 Profile has been deleted.
+            a(href="/signup") Make a new profile?
