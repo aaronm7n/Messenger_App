@@ -50,6 +50,8 @@ const logout = require('./routes/logout.js');
 app.use('/logout', logout);
 const protected_page = require('./routes/protected_page.js');
 app.use('/protected_page', protected_page);
+const update = require('./routes/update.js');
+app.use('/update', update);
 
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
