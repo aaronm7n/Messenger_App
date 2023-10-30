@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
 
 // Signup GET Request
 router.get('/', (req, res) => {
@@ -17,9 +19,10 @@ router.post('/', async (req, res) => {
         });
     }
     else {
+        var hashed = await bcrypt.hashSync(userInfo.password, salt);
         var newUser = new User({
             username: userInfo.username,
-            password: userInfo.password
+            password: hashed
         });
 
         // This prevents ant duplicate usernames
