@@ -1,0 +1,19 @@
+doctype html
+html 
+    head 
+        title Update Profile 
+    body 
+        if(message)
+            h4 #{message}
+        form(action = "/update", method = "POST")
+                div(class="div-newPassword")
+                    label(for = "password") New Password: 
+                    input(name = "password")
+                br
+                div If you want to delete your profile enter your password in the text box below.
+                div Warning this cannot be undone.
+                div(class="div-deleteProfile")
+                    label(for = "Delete") Delete Profile: 
+                    input(name = "Delete")
+                br
+                button(type = "submit") Update!

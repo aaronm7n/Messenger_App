@@ -1,10 +1,10 @@
 doctype html
 html 
     head 
-        title Signup Results 
+        title Profile Deleted 
     body    
         if(type == "error")
             h3(style = "color:red") #{message}
         else 
-            h3 New User, #{user.username} has been created!
-            a(href="/login") Login?
+            h3 Profile has been deleted.
+            a(href="/signup") Make a new profile?
