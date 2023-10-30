@@ -1,0 +1,13 @@
+doctype html
+html 
+    head 
+        title Update Profile 
+    body 
+        if(message)
+            h4 #{message}
+        form(action = "/update", method = "POST")
+                div(class="div-newPassword")
+                    label(for = "password") New Password: 
+                    input(name = "password")
+                br
+                button(type = "submit") Update!
