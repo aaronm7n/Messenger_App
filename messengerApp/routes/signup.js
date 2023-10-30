@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     var userInfo = await req.body; // Get the parsed information
     if(!userInfo.username || !userInfo.password) {
         res.render('signup_results', {
-            message: "Sorry, you have not provided all of the rquired information",
+            message: "Sorry, you have not provided all of the required information",
             type: "error"
         });
     }
