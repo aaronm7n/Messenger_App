@@ -138,7 +138,7 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 **Phase 1**
 1. Meeting on 10/24/23
 	Discussed who developes each use case. WOrked out work distribution for this phase.
-	- Danny- Use Case Diagrams/Descriptions
+	- Danny- Use Case Diagrams/Descriptions and Data Flow Diagrams
 	- Joe- Login
 	- Aaron- Registration
 	- Jon- Registration
