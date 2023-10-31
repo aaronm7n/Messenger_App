@@ -21,6 +21,7 @@ Instructor: Dr. Nick Stiffler
 - [Implementation](#implementation)
 - [Software Process Managment](#software-process-management)
 - [User Guide/Demo](#user-guidedemo)
+- [Use Cases][a relative link](UseCases.md)
 
 # Case Study: Messenger Application
 
@@ -62,22 +63,7 @@ List user requirements of the project that the team will develop into use cases 
 - An unregistered user cannot send or recieve messages
 
 ### Use Cases
-
-<p align="center">
-    <img  
-        style="padding: 0px 0px 0px 20px" 
-        width="450" 
-        height="450"
-        src= "https://i.imgur.com/9AZyuaW.png" />
-</p>
-
-Draw the overview use case diagram, and define brief use case description for each use case.
-
-### Use Case Description
-
-- An unregistered user will be able to register and become a registered user but will not be able to send or receive messages while unregistered.
-
-- Once a user is registered they will be able to login, logout, send, and receive messages.
+[a relative link](UseCases.md)
 
 ### Overview diagram
 
