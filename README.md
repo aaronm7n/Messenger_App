@@ -21,7 +21,7 @@ Instructor: Dr. Nick Stiffler
 - [Implementation](#implementation)
 - [Software Process Managment](#software-process-management)
 - [User Guide/Demo](#user-guidedemo)
-- [Use Cases][a relative link](UseCases.md)
+- [Use Cases](UseCases.md)
 
 # Case Study: Messenger Application
 
@@ -63,7 +63,7 @@ List user requirements of the project that the team will develop into use cases 
 - An unregistered user cannot send or recieve messages
 
 ### Use Cases
-[a relative link](UseCases.md)
+[Use Cases](UseCases.md)
 
 ### Overview diagram
 
