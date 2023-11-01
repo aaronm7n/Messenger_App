@@ -53,6 +53,7 @@ app.use('/protected_page', protected_page);
 const update = require('./routes/update.js');
 app.use('/update', update);
 
+
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
     res.send('Sorry, this is an invalid URL.');

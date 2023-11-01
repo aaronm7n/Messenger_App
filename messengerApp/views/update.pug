@@ -2,12 +2,31 @@ doctype html
 html 
     head 
         title Update Profile 
+        link(rel="stylesheet" href="/css/update.css")
     body 
-        if(message)
-            h4 #{message}
-        form(action = "/update", method = "POST")
-                div(class="div-newPassword")
-                    label(for = "password") New Password: 
-                    input(name = "password")
+        div(class="div-wrapper")
+            br
+            if(message)
+                h4 #{message}
+            form(action = "/update", method = "POST")
+                div(class="div-wrapper4")
+                    h3 To change your password,enter it in the box below!
                 br
-                button(type = "submit") Update!
+                div(class="div-wrapper2")
+                    
+                    div(class="div-newPassword")
+                        label(for = "password") New Password: 
+                        input(name = "password")
+                    
+                br
+                div(class="div-wrapper3")
+                    h2 If you want to delete your profile enter your password in the text box below.
+                    h1 Warning this cannot be undone.
+                br
+                div(class="div-wrapper2")
+                    div(class="div-deleteProfile")
+                        label(for = "Delete") Delete Profile: 
+                        input(name = "Delete")
+                    br
+                
+                    button(type = "submit") Update!

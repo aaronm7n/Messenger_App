@@ -49,7 +49,7 @@ Source code repository (private access): <https://github.com/lambertd4/Capstone1
 
 ## Overview
 
-Currently working on the basis of our project by creating use case diagrams based on our user requirments and doing research on viable web development stacks to use for our messanger application.
+We are at the end of our first sprint, adding many new features to our app! We made it so that we have users who can register for an account, login to their profile to access their own protected page, and edit their profile! Our main focus for this sprint was setting up our user database and giving user's some options for their profile. Users will be able to change their password and delete their account if they want to. In addition to this we made it so passwords were salted and hashed instead of stored plainly in our database. Also we worked on our route structure, making it much more clean and easy to tell which routes lead where. We also wanted to begin to think of design ideas for the future of our webapp! We agreed upon a color palate that we plan on implementing into all future pages via css routes. 
 
 
 ## System Analysis
@@ -74,30 +74,132 @@ _(Coming Soon)_
 
 ## System Design
 
-_(Coming Soon)_
+In this section we are going to go over a few important ways about how we put our app together!
 
 ### Use-Case Realization
 
-_(Coming soon)_
+Use cases are very important for realizing our goals for developing our app! We should do them first so that it is clear what we are doing on a page and how we are doing it! See [Use Cases](UseCases.md)
+
+
 
 ### Database 
 
-_(Coming soon)_
+We set up our database using mongoose and mongodb! This allowed us to make a database of users, and we will further expand it's uses in future sprints! In order to access our database from our computers we had to creteat a authentification step in our code that let us access the data from it, and we make sure that the first thing that is done when our server launches is to connect to our database! See [Database Connection!](#database-connection)
 
 ### User Interface
 
-_(Coming soon)_
+Much of our User Interface is handled via routes and CSS. We will show many snippits of our route further below, however CSS is most important for putting our page together in a way that our user can use our app efficiently! We created a css stylesheet for each page we used in app, and worked hard to make sure our features were obvious and easy on the eyes. We chose a cool color palate too! In the future to improve our user interface we want to add a home page that is accesable by all, but includes key links to places on our site like login, signup, and more!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/epicloginexample.png" />
+</p>
 
 ## Implementation
 
-For each new sprint cycle, update the implementation of your system (break it
-down into subsections). It is helpful if you can include some code snippets to
-illustrate the implementation.
+In this section we will be highlighting key components of our implementation of our main features!
 
-Specify the development approach of your team, including programming languages,
-database, development, testing, and deployment environments. 
+### User Model
 
-### Deployment
+In the code snippit below you can see how we made our user model. Our username is stored in a 16 bit string and our password a 64 bit string. We had to make our password a 64 bit string in order to implement salting and hashing, which will be shown later.
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/user.js.png" />
+</p>
+
+### Database Connection
+
+In the snippet below we can see our mongoose database connection made at the top of our index.js file. We did this so we could insure that we connected to the database before accessing any routes. We have our credentails for database connection blurred, but by filling in the correct link we can modify our database!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="250"
+        src= "code_snippets/mongoose.png" />
+</p>
+
+### Routing
+
+In this example we can see how our routin is handled after database connection! We made a folder for each route of our page, but by using index we have made highway to all of them in one page, which allows us to use run our server using just index for multiple routes on one clean page. 
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/index.js.png" />
+</p>
+
+### User Registration
+
+In this code snippit we show how we allowed users to signup! As you can see we prevent a user from entering a blank name or password first, then it searches for a user with the same name as the one entered in our form. This prevents multiple usernames! We then save our new user as an actual user model and put them in our database! Our user is now free to use our app!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/signupjs.png" />
+</p>
+
+### Login
+
+Below we have our login route! As you can see we prevent an empty username or password. Then we find the corresponding user and check to see if the input password matches the one found in our database! You may notice a comment that expresses Joe's amazement at the function working. This is because during our attempts to search for a user we realized that we would need the await function! The await function basically waits for the command we are working on to finish, prioritizing it.  
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/login.png" />
+</p>
+
+### Protected Page
+
+Our protected page route is shown below! This page is where you are sent upon logging in! We first check the user session to make sure that our user is signed in with an authenticated account, then they have access to our their page! We also pass the user's name off to our pug to display a personalized message!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/protectedpagejs.png" />
+</p>
+
+### Logout
+
+Our logout function is shown below! Upon clicking the logout button our post request will be sent, which will destroy the user's current session! This puts them at square one, and they will be unable to access their page again untill they login!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/logoutjs.png" />
+</p>
+
+### Updating your profile
+
+Below we show off two whole features! First we show you how we handle deleting a profile. First we want to make sure our user has input their actual password. We wouldn't want someone else just hitting a button to delete their profile! Once that is done we search for our user and delete them from our database! Then, for our update password feature,
+
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/update.png" />
+</p>
+
+## Deployment
 
 Describe how to deploy your system in a specific platform.
 
@@ -198,19 +300,26 @@ Insert Image
 
 1.  Jonathan Pieroni, x hours, contributed in xxx
 2.  Daniel Lambert,   8 hours, contributed in all diagrams for Sprint 1 / Much documentation on README.md and UseCases.md
-3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
-4.  Aaron McClellan,  22 hours, contributed in User registration, User update, User delete, All routing, setup, CSS, scrum manager, branch manager, debugging, README.md, and the USER model
+3. Joseph Johnson, 18 hours, contributed in Javascript CSS and Pug for the following: Login, Logout, Protected Page. Assisted in CSS for all pages. Implementation, Overview, and minor edits accross the README file. Assisted in formating of presentation. 
+4.  Aaron McClellan,  24 hours, contributed in User registration, User update, User delete, All routing, setup, CSS, scrum manager, branch manager, debugging, README.md, and the USER model
 
 #### Sprint Retrospective
 
+###### Sprint 0
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
 | Once goals were evventually established we excelled at our goals | Initial Goal Orientation  |Establish specific goals between eachother more efficiently|
 | Once we had an efficient way of comunicating we had great communication | Meeting planning | Establish a more routine time to meet with the team |
 | Met in person at library and capstone room | Library room was very small, Capstone room is other side of campus for all members | Establish meeting place at appropriate sized library room or house |
-| Used a discord for online meet ups and updates  | Distribution of workload could have been better| As early as possible, discuss the distribution of work and make sure everyone starts early to improve timing |
 
+
+###### Sprint 1
+
+| Good     |   Could have been better    |  How to improve?  |
+|----------|:---------------------------:|------------------:|
+| Made several clear and specefic goals on our trello board | Communication on who should do what and in what order was lacking | Meeting more frequently to establish goals and focus on more specefic tasks |
+| Used a discord for online meet ups and updates  | Distribution of workload could have been better| As early as possible, discuss the distribution of work and make sure everyone starts early to improve timing |
 ## User Guide/Demo
 
 _(Coming Soon)_

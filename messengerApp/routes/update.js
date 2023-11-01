@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
 
 
 const checkSignIn = (req, res, next) => {
@@ -28,55 +30,28 @@ router.use (function(req, res, next) {
 
 // Update POST Request
 router.post('/', async (req, res) => {
-    const { id, password } = req.body // Makes comparing id and passwords easier
-
+    const { id, password, Delete } = req.body // Makes comparing id and passwords easier
     const username = req.session.user.username;
+    const user = await User.findOne({ "username": username});
 
-    if(!password){
+    if(await bcrypt.compareSync(Delete,user.password )){
+        var ack,count = await User.deleteOne({"username": username})
+        if(ack==true&& count ==1){
+            res.render('profiledeleted', {message: "Success!"})
+        }
+        else 
+            res.render('profiledeleted', {message: "There was an error deleting your prfile.", Type: "error"})
+
+    }
+    else if(!password){
         res.render('update', {message: "Please enter some information to update your profile"})
     }
     else{
-        /*
-        const query = await User.findOne({ username: id });
-        if(query){
-            res.render('update', {
-                message: "Sorry, This username is taken!",
-            });
-            console.log(`Duplicate username`)
-        }
-        
-        None of this currently works, it is supposed to update the username
-        if(id && password){
-            await User.findOneAndUpdate(
-                { username: username },
-                { username: id },
-                { new: true }
-            );
-            await User.findOneAndUpdate(
-                { username: username },
-                { password: password },
-                { new: true }
-            );
-            res.render('update', {
-                message: "You have succefully updated your username and password",
-            });
-        }
-
-        if(id){
-            await User.findOneAndUpdate(
-                { username: username },
-                { username: id },
-                { new: true }
-            );
-            res.render('update', {
-                message: "You have succefully updated your username",
-            });
-        } */
-
         if(password){
+            var hashed = await bcrypt.hashSync(password, salt);
             await User.findOneAndUpdate(
                 { username: username},
-                { password: password },
+                { password: hashed },
                 { new: true }
             );
             res.render('update', {

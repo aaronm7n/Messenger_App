@@ -1,0 +1,17 @@
+doctype html
+html 
+    head 
+        title Profile Deleted 
+        link(rel="stylesheet" href="/css/profiledeleted.css")
+    body    
+        div(class="div-wrapper")
+            if(type == "error")
+                div(class="div-wrapper2")
+                    h3(style = "color:red") #{message}
+            else
+                br 
+                div(class="div-wrapper2")
+                    
+                    h3 Profile has been deleted.
+                a(href="/login")
+                    button Login

@@ -2,8 +2,17 @@ doctype html
 html 
     head 
         title Signup Results 
-    body    
-        if(type == "error")
-            h3(style = "color:red") #{message}
-        else 
-            h3 New User, #{user.username} has been created!
+        link(rel="stylesheet" href="/css/signup_results.css")
+    body 
+        div(class="div-wrapper") 
+            br  
+            if(type == "error")
+                div(class="div-wrapper2")
+                    h2(style = "color:red") #{message}
+                br
+                a(href="/signup") 
+                    button Go Back?
+            else 
+                h2 New User, #{user.username} has been created!
+                a(href="/login")
+                    button Login

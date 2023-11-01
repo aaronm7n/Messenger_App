@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+
 
 // Login GET Request
 router.get('/', (req, res) => {
@@ -24,7 +26,7 @@ router.post('/', async (req,res) => {
         return res.render('login', { message: "Hey you arent a user! Sign Up!"})
     }
 
-    if(user.password === password){
+    if( await bcrypt.compareSync(password,user.password )){
         req.session.user = user;
         return res.redirect('/protected_page')
     }
