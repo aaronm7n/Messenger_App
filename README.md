@@ -86,19 +86,29 @@ _(Coming Soon)_
 
 ## System Design
 
-_(Coming Soon)_
+In this section we are going to go over a few important ways about how we put our app together!
 
 ### Use-Case Realization
 
-_(Coming soon)_
+Use cases are very important for realizing our goals for developing our app! We should do them first so that it is clear what we are doing on a page and how we are doing it! See [Use Cases](UseCases.md)
+
+
 
 ### Database 
 
-_(Coming soon)_
+We set up our database using mongoose and mongodb! This allowed us to make a database of users, and we will further expand it's uses in future sprints! In order to access our database from our computers we had to creteat a authentification step in our code that let us access the data from it, and we make sure that the first thing that is done when our server launches is to connect to our database! See [Database Connection!](#database-connection)
 
 ### User Interface
 
-_(Coming soon)_
+Much of our User Interface is handled via routes and CSS. We will show many snippits of our route further below, however CSS is most important for putting our page together in a way that our user can use our app efficiently! We created a css stylesheet for each page we used in app, and worked hard to make sure our features were obvious and easy on the eyes. We chose a cool color palate too! In the future to improve our user interface we want to add a home page that is accesable by all, but includes key links to places on our site like login, signup, and more!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/epicloginexample.png" />
+</p>
 
 ## Implementation
 
@@ -425,13 +435,24 @@ src= "https://i.imgur.com/iyQVzya.png" />
 
 ##### Contributions:
 
+###### Sprint 1
+
 1.  Jonathan Pieroni, x hours, contributed in xxx
 2.  Daniel Lambert,   x hours, contributed in xxx
 3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
 4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
+###### Sprint 1
+
+1. Jonathan Pieroni, x hourse, contributed in xxx
+1. Daniel Lambert, x hourse, contributed in xxx
+1. Joseph Johnson, 18 hourse, contributed in Javascript CSS and Pug for the following: Login, Logout, Protected Page. Assisted in CSS for all pages. Implementation, Overview, and minor edits accross the README file. Assisted in formating of presentation. 
+1. Aaron McClellan, x hourse, contributed in xxx
+
+
 ##### Sprint Retrospective
 
+###### Sprint 1
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
@@ -439,6 +460,11 @@ src= "https://i.imgur.com/iyQVzya.png" />
 | Once we had an efficient way of comunicating we had great communication | Meeting planning | Establish a more routine time to meet with the team |
 | Met in person at library and capstone room | Library room was very small, Capstone room is other side of campus for all members | Establish meeting place at appropriate sized library room or house |
 
+###### Sprint 2
+
+| Good     |   Could have been better    |  How to improve?  |
+|----------|:---------------------------:|------------------:|
+| Made several clear and specefic goals on our trello board | Communication on who should do what and in what order was lacking | Meeting more frequently to establish goals and focus on more specefic tasks |
 ## User Guide/Demo
 
 _(Coming Soon)_
