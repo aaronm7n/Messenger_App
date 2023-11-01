@@ -47,43 +47,6 @@ router.post('/', async (req, res) => {
         res.render('update', {message: "Please enter some information to update your profile"})
     }
     else{
-        /*
-        const query = await User.findOne({ username: id });
-        if(query){
-            res.render('update', {
-                message: "Sorry, This username is taken!",
-            });
-            console.log(`Duplicate username`)
-        }
-        
-        None of this currently works, it is supposed to update the username
-        if(id && password){
-            await User.findOneAndUpdate(
-                { username: username },
-                { username: id },
-                { new: true }
-            );
-            await User.findOneAndUpdate(
-                { username: username },
-                { password: password },
-                { new: true }
-            );
-            res.render('update', {
-                message: "You have succefully updated your username and password",
-            });
-        }
-
-        if(id){
-            await User.findOneAndUpdate(
-                { username: username },
-                { username: id },
-                { new: true }
-            );
-            res.render('update', {
-                message: "You have succefully updated your username",
-            });
-        } */
-
         if(password){
             var hashed = await bcrypt.hashSync(password, salt);
             await User.findOneAndUpdate(
