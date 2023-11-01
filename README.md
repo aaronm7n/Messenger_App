@@ -34,9 +34,9 @@ Instructor: Dr. Nick Stiffler
 
 ## Project Management Information
 
-Management board (private access will update to correct course number in future): <https://trello.com/b/txjCjXfN/capstone-1-project>
+Management board: <https://trello.com/b/txjCjXfN/capstone-1-project>
 
-Source code repository (private access): <https://github.com/lambertd4/Capstone1>
+Source code repository: <https://github.com/lambertd4/Capstone1>
 
 ## Revision History
 
@@ -68,10 +68,6 @@ List user requirements of the project that the team will develop into use cases 
 ### Use Cases
 [Use Cases](UseCases.md)
 
-### Overview diagram
-
-_(Coming Soon)_
-
 ## System Design
 
 In this section we are going to go over a few important ways about how we put our app together!
@@ -79,8 +75,6 @@ In this section we are going to go over a few important ways about how we put ou
 ### Use-Case Realization
 
 Use cases are very important for realizing our goals for developing our app! We should do them first so that it is clear what we are doing on a page and how we are doing it! See [Use Cases](UseCases.md)
-
-
 
 ### Database 
 
@@ -267,7 +261,18 @@ Trello for Sprint 1.
 
 
 Commits for Sprint 1.
-Insert Image
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/wP181ws.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/KVGvskc.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/VMUihz7.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/qS8VpPQ.png" />
 
 #### Sprint 0 Completed Tasks
 
@@ -298,7 +303,7 @@ Insert Image
 
 #### Sprint 1 Contributions:
 
-1.  Jonathan Pieroni, x hours, contributed in xxx
+1.  Jonathan Pieroni, 6 hours, contributed in salting and hasshing password on User registration and User update, and User profile Deletion.
 2.  Daniel Lambert,   8 hours, contributed in all diagrams for Sprint 1 / Much documentation on README.md and UseCases.md
 3. Joseph Johnson, 18 hours, contributed in Javascript CSS and Pug for the following: Login, Logout, Protected Page. Assisted in CSS for all pages. Implementation, Overview, and minor edits accross the README file. Assisted in formating of presentation. 
 4.  Aaron McClellan,  24 hours, contributed in User registration, User update, User delete, All routing, setup, CSS, scrum manager, branch manager, debugging, README.md, and the USER model
