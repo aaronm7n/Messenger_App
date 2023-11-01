@@ -322,4 +322,6 @@ Insert Image
 | Used a discord for online meet ups and updates  | Distribution of workload could have been better| As early as possible, discuss the distribution of work and make sure everyone starts early to improve timing |
 ## User Guide/Demo
 
-_(Coming Soon)_
+<video width="320" height="240" controls>
+  <source src="DemoSprint1.mp4" type="video/mp4">
+</video>
