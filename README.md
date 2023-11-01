@@ -43,6 +43,9 @@ Source code repository (private access): <https://github.com/lambertd4/Capstone1
 | Date     |   Version     |  Description    |
 |----------|:-------------:|----------------:|
 |09/12/2023|  0.01         | Initial draft   |
+|10/25/2023|  0.10		   | User registration has been added|
+|10/29/2023|  0.20		   | Login/Logout/Protected page added|
+|10/30/2023|  0.30		   | Update/Delete/Salt&Hash/CSS added|
 
 ## Overview
 
@@ -113,7 +116,7 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 ### Scrum Meetings
 
-**Phase 0**
+**Sprint 0**
 1. Meeting on 9/19/23
 	Discussed who Researched and who did work on read me.
 	- Danny- Use Case Diagram and README
@@ -121,7 +124,7 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 	- Aaron- Socket and View
 	- Jon- Trello Board and some README
 
-**Phase 1**
+**Sprint 1**
 1. Meeting on 10/24/23
 	Discussed who developes each use case. WOrked out work distribution for this phase.
 	- Danny- Use Case Diagrams/Descriptions and Data Flow Diagrams
@@ -134,8 +137,6 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 Duration: 18/09/2023 - 21/09/2023
 
 Trello for Sprint 0.
-
-
 <img  
     style="padding: 0px 0px 0px 20px" 
     src= "https://i.imgur.com/pMLtd9P.png" />
@@ -147,25 +148,58 @@ src= "https://i.imgur.com/iyQVzya.png" />
 
 ### Sprint 1
 
+Duration 18/10/2023 - 31/10/2023
+
 Trello for Sprint 1.
-Insert Image
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/51B5K5s.png" />
+
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/2FWWKAV.png" />
+
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/XoxIF63.png" />
+
 
 Commits for Sprint 1.
 Insert Image
 
-#### Completed Tasks
+#### Sprint 0 Completed Tasks
 
 1. Research angular.js and react.js for viable technologies
 2. Research socket.io and vue.js for viable technologies
 3. Use case Diagram and use cases desciptions created.
 4. Modify README.md to fulfil requirements for Team assignment 1.
 
-#### Contributions:
+#### Sprint 0 Contributions:
 
 1.  Jonathan Pieroni, x hours, contributed in xxx
-2.  Daniel Lambert,   8 hours, contributed in all diagrams for phase 0 and phase 1 / Much documentation on README.md and UseCases.md
+2.  Daniel Lambert,   x hours, contributed in xxx
 3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
 4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
+
+### Sprint 1 Completed Tasks
+
+1. Decide on color theme for application
+2. A user can register for access (usename & password)
+3. A user can login
+4. A user can logout
+5. A logged in user can access a restricted page of the application that requires authentication
+6. A user that is not logged in is unable to access a retricted page of the application that requires authentication
+7. Move all routing from index.js to routes folder and individual js files
+8. A logged-in-user can update their information (password)
+9. A logged-in-user can request account deletion
+10. Salting and Hashing user passwords
+
+#### Sprint 1 Contributions:
+
+1.  Jonathan Pieroni, x hours, contributed in xxx
+2.  Daniel Lambert,   8 hours, contributed in all diagrams for Sprint 1 / Much documentation on README.md and UseCases.md
+3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
+4.  Aaron McClellan,  22 hours, contributed in User registration, User update, User delete, All routing, setup, CSS, scrum manager, branch manager, debugging, README.md, and the USER model
 
 #### Sprint Retrospective
 
