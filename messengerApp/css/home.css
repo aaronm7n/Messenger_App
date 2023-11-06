@@ -1,0 +1,72 @@
+body {
+    background-color: #242526;
+    text-align: center;
+}
+
+.div-wrapper{
+    background-color: #1f0f66;
+    width: 350px;
+    height: 480px;
+    margin: auto;
+    border-radius: 50px;
+    border: 5px solid #40124C;
+}
+
+.title-wrapper{
+    background-color: #880085;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    border-radius: 20px;
+    border: 5px solid #40124C;
+}
+
+.query-wrapper{
+    background-color: #880085;
+    width: 300px;
+    height: 160px;
+    margin: auto;
+    border-radius: 20px;
+    border: 5px solid #40124C;
+}
+
+.button-wrapper{
+    background-color: #880085;
+    width: 300px;
+    height: 80px;
+    margin: auto;
+    border-radius: 20px;
+    border: 5px solid #40124C;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+    color: white;
+    font-family: courier;
+    font-size: 26px;
+}
+
+h2 {
+    text-align: center;
+    text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+    color: white;
+    font-family: courier;
+    font-size: 18px
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #40124C;
+    color: white;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 20px;
+    width: 100px;
+    font-family: courier;
+    font-size: 18px;
+    text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+}

@@ -42,6 +42,8 @@ app.use(session({secret: "Apple"}));
 
 
 // Routing setup
+const home = require('./routes/home.js');
+app.use('/', home);
 const signup = require('./routes/signup.js');
 app.use('/signup', signup);
 const login = require('./routes/login.js');
