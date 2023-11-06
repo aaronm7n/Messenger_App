@@ -54,6 +54,8 @@ const protected_page = require('./routes/protected_page.js');
 app.use('/protected_page', protected_page);
 const update = require('./routes/update.js');
 app.use('/update', update);
+const deletetion = require('./routes/delete.js');
+app.use('/delete', deletetion);
 
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
