@@ -64,24 +64,20 @@ app.use('/delete', deletetion);
 const genChat = require('./routes/general_chat.js');
 app.use('/general_chat', genChat);
 
-
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
     res.send('Sorry, this is an invalid URL.');
 });
 
-// This will tell us when a user has connected to our application
 io.on('connection', (socket) => {
-    console.log('a user connected');
-
-    // handle events
+    console.log('a user connected to general chat');
     socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
+        console.log('a user disconnected from general chat')
+    })
 });
 
-server.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+server.listen(3000, () => {
+    console.log(`Server running on https://localhost:${port}`);
 });
 
 app.listen(port, () => {
