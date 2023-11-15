@@ -1,10 +1,15 @@
 // Module imports
 const express = require('express');
+const http = require('http');
+const { Server } = require("socket.io");
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 const upload = multer();
 
 const port = process.env.PORT || 3000;
@@ -56,11 +61,27 @@ const update = require('./routes/update.js');
 app.use('/update', update);
 const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
+const genChat = require('./routes/general_chat.js');
+app.use('/general_chat', genChat);
 
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
     res.send('Sorry, this is an invalid URL.');
+});
+
+// This will tell us when a user has connected to our application
+io.on('connection', (socket) => {
+    console.log('a user connected');
+
+    // handle events
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+});
+
+server.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
 
 app.listen(port, () => {
