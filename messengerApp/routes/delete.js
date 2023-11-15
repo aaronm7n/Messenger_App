@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 const checkSignIn = (req, res, next) => {
@@ -15,7 +16,7 @@ const checkSignIn = (req, res, next) => {
 
 // Update GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('update');
+    res.render('delete');
     
 });
 
@@ -38,6 +39,9 @@ router.post('/', async (req, res) => {
         else 
             res.render('profiledeleted', {message: "There was an error deleting your prfile.", Type: "error"})
 
+    }
+    else{
+        res.render('delete', {message: "Please enter password to delete profile"})
     }
 });
 

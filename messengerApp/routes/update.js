@@ -41,7 +41,6 @@ router.post('/', async (req, res) => {
         }
         else 
             res.render('profiledeleted', {message: "There was an error deleting your prfile.", Type: "error"})
-
     }
     else if(!password){
         res.render('update', {message: "Please enter some information to update your profile"})

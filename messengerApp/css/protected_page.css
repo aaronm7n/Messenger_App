@@ -24,26 +24,23 @@
     border: 5px solid #40124C;
 }
 
-
 a{
     display: inline-block;
-}
-
-button{
-    display: inline-block;
-    border: 5px solid #40124C;
-    background-color: #880085;
+    text-decoration: none;
+    background-color: #40124C;
     color: white;
-    border-radius: 50px;
-    vertical-align: middle;
-    text-align: center;
-    margin-top: 5px;
-    height: 50px;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 20px;
     width: 100px;
     font-family: courier;
     font-size: 18px;
     text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
 }
+
+
 h1 {
     text-align: center;
     text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
