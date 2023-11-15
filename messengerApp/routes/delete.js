@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
-const salt = bcrypt.genSaltSync(10);
-
 
 const checkSignIn = (req, res, next) => {
     if(req.session.user){
@@ -18,7 +16,7 @@ const checkSignIn = (req, res, next) => {
 
 // Update GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('update');
+    res.render('delete');
     
 });
 
@@ -28,7 +26,6 @@ router.use (function(req, res, next) {
     next();
 });
 
-// Update POST Request
 router.post('/', async (req, res) => {
     const { id, password, Delete } = req.body // Makes comparing id and passwords easier
     const username = req.session.user.username;
@@ -41,23 +38,11 @@ router.post('/', async (req, res) => {
         }
         else 
             res.render('profiledeleted', {message: "There was an error deleting your prfile.", Type: "error"})
-    }
-    else if(!password){
-        res.render('update', {message: "Please enter some information to update your profile"})
+
     }
     else{
-        if(password){
-            var hashed = await bcrypt.hashSync(password, salt);
-            await User.findOneAndUpdate(
-                { username: username},
-                { password: hashed },
-                { new: true }
-            );
-            res.render('update', {
-                message: "You have succefully updated your password",
-            });
-        }
-    } 
+        res.render('delete', {message: "Please enter password to delete profile"})
+    }
 });
 
 router.use('/', (err, req, res, next) => {
