@@ -73,7 +73,15 @@ io.on('connection', (socket) => {
     console.log('a user connected to general chat');
     socket.on('disconnect', () => {
         console.log('a user disconnected from general chat')
-    })
+    });
+
+    socket.on('chat message', (msg) => {
+        console.log('message: ' + msg);
+    });
+
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg);
+    });
 });
 
 server.listen(3000, () => {
