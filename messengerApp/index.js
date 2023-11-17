@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('chat message', (msg) => {
-        io.emit('chat message', 'Annonymous user: ' + msg);
+        io.emit('chat message', `Annonymous user: ${socket.id} ` + msg);
     });
 });
 
