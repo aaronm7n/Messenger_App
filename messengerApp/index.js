@@ -74,11 +74,14 @@ app.get('*', (req, res) => {
 });
 
 io.on('connection', (socket) => {  
-    console.log('a user connected to general chat');
+    console.log('a user connected');
     socket.on('disconnect', () => {
-        console.log('a user disconnected from general chat')
+        console.log('a user disconnected')
     });
 
+    socket.on('joinRoom', (room) => {
+        console.log(`${socket.id} just joined the room ${room}`);
+    });
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
     });
