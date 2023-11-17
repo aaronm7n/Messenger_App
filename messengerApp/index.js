@@ -70,7 +70,7 @@ app.use('/general_chat', genChat);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
-    res.send('Sorry, this is an invalid URL.');
+    res.render('home');
 });
 
 io.on('connection', (socket) => {  
