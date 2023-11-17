@@ -73,7 +73,7 @@ app.get('*', (req, res) => {
     res.send('Sorry, this is an invalid URL.');
 });
 
-io.on('connection', (socket) => {
+io.on('connection', (socket) => {  
     console.log('a user connected to general chat');
     socket.on('disconnect', () => {
         console.log('a user disconnected from general chat')
@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+        io.emit('chat message', 'Annonymous user: ' + msg);
     });
 });
 
