@@ -9,7 +9,11 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+         // This feature will temporarily store all the events that 
+         // are sent by the server and will try to restore the state of a client when it reconnects:
+    connectionStateRecovery: {}
+});
 const upload = multer();
 
 const port = process.env.PORT || 3000;
