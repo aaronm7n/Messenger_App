@@ -12,9 +12,101 @@ router.get('/', (req, res) => {
 // Signup POST Request
 router.post('/', async (req, res) => {
     var userInfo = await req.body; // Get the parsed information
+    var passwordStrength = 0;
+    for(var i =0; i< 10; i++){
+        if(userInfo.password.includes(i)){
+            passwordStrength++;
+            break;
+        }
+    }
+    do{
+        if(userInfo.password.includes('!')){
+            passwordStrength++;
+            break;
+        }
+        if(userInfo.password.includes('@')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('#')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('$')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('%')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('^')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('&')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('*')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('(')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes(')')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('-')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('_')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('=')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('+')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('/')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('?')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('[')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('{')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes(']')){
+            passwordStrength++;
+            break;
+        }if(userInfo.password.includes('}')){
+            passwordStrength++;
+            break;
+        }
+        if(userInfo.password.includes('\\')){
+            passwordStrength++;
+            break;
+        }
+        if(userInfo.password.includes('|')){
+            passwordStrength++;
+            break;
+        }
+
+        break;
+    }while(false);
+    if(userInfo.password.length>9)
+        passwordStrength++;
+    if(userInfo.password != userInfo.password.toLowerCase())
+        passwordStrength++;
+    console.log(passwordStrength);
     if(!userInfo.username || !userInfo.password) {
         res.render('signup_results', {
             message: "Sorry, you have not provided all of the required information",
+            type: "error"
+        });
+    }
+    else if (passwordStrength <=2){
+        res.render('signup_results', {
+            message: "Sorry, your password is not strong enough. It must contain 2 of the following: an uppercase character, a number, a special character, or be longer than 10 characters.",
             type: "error"
         });
     }
