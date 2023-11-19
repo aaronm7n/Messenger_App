@@ -83,7 +83,8 @@ io.on('connection', async (socket) => {
 
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
-        previousMessages(socket, 'generalChat');//display previous messages in room
+        socket.room = room;//sets the current room for the user
+        previousMessages(socket, `${room}`);//display previous messages in room
     });
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
@@ -92,7 +93,7 @@ io.on('connection', async (socket) => {
     socket.on('chat message', (msg) => {
         var newMessage = new Message({
             message: msg,
-            roomname: "generalChat"
+            roomname: socket.room
         }); 
         newMessage.save();
         io.emit('chat message', `Annonymous user: ${socket.id} ` + newMessage.message);
