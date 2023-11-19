@@ -83,7 +83,7 @@ io.on('connection', async (socket) => {
 
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
-        previousMessages(socket, 'generalChat');
+        previousMessages(socket, 'generalChat');//display previous messages in room
     });
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
@@ -95,14 +95,14 @@ io.on('connection', async (socket) => {
             roomname: "generalChat"
         }); 
         newMessage.save();
-        io.emit('chat message', `Annonymous user: ${socket.id} ` + msg);
+        io.emit('chat message', `Annonymous user: ${socket.id} ` + newMessage.message);
     });
 });
 
 async function previousMessages(socket, room) {
-    const previousMessages = await Message.find({ roomname: room })
+    const previousMessages = await Message.find({ roomname: room })//gets all previous messages of specefic room
     previousMessages.forEach((message) => {
-        socket.emit('chat message', 'Previous Message:' + message.message)
+        socket.emit('chat message', 'Previous Message:' + message.message)//displays message text
     })
 }
 
