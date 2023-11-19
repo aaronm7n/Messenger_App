@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const Message = require('./models/message.js');
 
 const app = express();
 const server = http.createServer(app);
@@ -73,23 +74,37 @@ app.get('*', (req, res) => {
     res.render('home');
 });
 
-io.on('connection', (socket) => {  
+io.on('connection', async (socket) => {  
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('a user disconnected')
     });
 
+
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
+        previousMessages(socket, 'generalChat');
     });
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
     });
 
     socket.on('chat message', (msg) => {
+        var newMessage = new Message({
+            message: msg,
+            roomname: "generalChat"
+        }); 
+        newMessage.save();
         io.emit('chat message', `Annonymous user: ${socket.id} ` + msg);
     });
 });
+
+async function previousMessages(socket, room) {
+    const previousMessages = await Message.find({ roomname: room })
+    previousMessages.forEach((message) => {
+        socket.emit('chat message', 'Previous Message:' + message.message)
+    })
+}
 
 server.listen(3000, () => {
     console.log(`Server running on https://localhost:${port}`);
