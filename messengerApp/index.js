@@ -101,6 +101,16 @@ io.on('connection', async (socket) => {
 });
 
 async function previousMessages(socket, room) {
+    const messageCount = await Message.countDocuments({ roomname: room});//gets total number of messages
+
+    var messagesToDelete = 0;
+    if(messageCount > 50){
+        messagesToDelete = messageCount-50;
+    }
+    for(i = messagesToDelete; i > 0; i--){
+        await Message.deleteOne({ "roomname": room})
+    }
+
     const previousMessages = await Message.find({ roomname: room })//gets all previous messages of specefic room
     previousMessages.forEach((message) => {
         socket.emit('chat message', 'Previous Message:' + message.message)//displays message text
