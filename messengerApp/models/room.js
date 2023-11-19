@@ -17,7 +17,7 @@ const RoomSchema = new mongoose.Schema({
         maxlength: 16
     },
     userList: {
-        type: [Users],
+        type: [String],
         required: true,
     }
 });

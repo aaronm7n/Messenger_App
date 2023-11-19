@@ -10,9 +10,14 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-         // This feature will temporarily store all the events that 
+         // This feature will temporarily store all the events that (NOT YET FUNCTIONAL)
          // are sent by the server and will try to restore the state of a client when it reconnects:
     connectionStateRecovery: {}
+});
+const cr = new Server(server, {
+     // This feature will temporarily store all the events that (NOT YET FUNCTIONAL)
+     // are sent by the server and will try to restore the state of a client when it reconnects:
+     connectionStateRecovery: {}
 });
 const upload = multer();
 
@@ -67,6 +72,8 @@ const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
 const genChat = require('./routes/general_chat.js');
 app.use('/general_chat', genChat);
+const createRoom = require('./routes/create_room.js');
+app.use('/create_room', createRoom);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
@@ -88,6 +95,24 @@ io.on('connection', (socket) => {
 
     socket.on('chat message', (msg) => {
         io.emit('chat message', `Annonymous user: ${socket.id} ` + msg);
+    });
+});
+
+cr.on('connection', (socket) => {  
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+        console.log('a user disconnected')
+    });
+
+    socket.on('joinRoom', (room) => {
+        console.log(`${socket.id} just joined the room ${room}`);
+    });
+    socket.on('chat message', (msg) => {
+        console.log('message: ' + msg);
+    });
+
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', `User: ${socket.id} ` + msg);
     });
 });
 
