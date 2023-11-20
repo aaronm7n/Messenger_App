@@ -1,0 +1,20 @@
+doctype html
+html 
+    head 
+        title Signup 
+        link(rel="stylesheet" href="/css/create_room.css")
+    body 
+        if(message)
+            h4 #{message}
+        form(action = "/create_room", method = "POST")
+            div(class="div-wrapper")
+                h1 Create a Chat Room!
+                div(class="div-username") 
+                    label(for = "roomName") Room Name: 
+                    input(name = "roomName")
+                br
+                div(class="div-password")
+                    label(for = "roomCode") Room Code: 
+                    input(name = "roomCode")
+                br
+                button(type = "submit") Create Room!
