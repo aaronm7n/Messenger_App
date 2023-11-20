@@ -17,7 +17,8 @@ const checkSignIn = (req, res, next) => {
 
 // Join Room GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('join_room');
+    res.sendFile('join_room.html', { root: './views'});
+    //res.render('join_room');
 });
 
 // This allows us to know which user is currently logged in so we know what data to change
@@ -34,19 +35,20 @@ router.post('/', async (req,res) => {
     const user = await User.findOne({ "username": username});
 
     if(!roomName || !roomCode){
-        res.render('join_room', {message: "Please enter both Room Name and Room Code"});
-        return;
+        console.log('nothing entered')
+        return res.render('signup_results', {message: "Please enter both Room Name and Room Code"});
     }
     else if (!room){
-        return res.render('join_room', {message: "This room does not exist"});
+        console.log('no room');
+        return res.render('signup_results', {message: "This room does not exist"});
     }
     else{
         if (room.userList.includes(user.username)){
-            req.session.room = room;
+            console.log('redirect should happen here');
             return res.redirect('/private_chat');
         }
         else {
-            return res.render('join_room', {message: "You have not been given access to this room"});
+            return res.render('signup_results', {message: "You have not been given access to this room"});
         }
     }
 });

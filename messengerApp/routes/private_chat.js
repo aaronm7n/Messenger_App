@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Room = require('../models/room.js');
+const $ = require('jquery')
 
 router.get('/', (req, res) => {
     const roomname = req.session.room.roomName;
-    res.render('private_chat', {roomName: roomname});
+    res.sendFile('private_chat.html', { root: './views'});
     
     
-    console.log(roomname);
+    //console.log(roomname);
 });
 
 
