@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const Message = require('./models/message.js');
 
 
 const app = express();
@@ -81,24 +82,50 @@ app.get('*', (req, res) => {
     res.render('home');
 });
 
-io.on('connection', (socket) => {  
+io.on('connection', async (socket) => {  
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('a user disconnected')
     });
 
+    
+
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
+        socket.room = room;//sets the current room for the user
+        previousMessages(socket, `${room}`);//display previous messages in room
     });
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
     });
 
     socket.on('chat message', (msg) => {
-        io.emit('chat message', `Annonymous user: ${socket.id} ` + msg);
+        var newMessage = new Message({
+            message: msg,
+            roomname: socket.room,
+            username: socket.username
+        }); 
+        newMessage.save();
+        io.emit('chat message', `${socket.username}: ${socket.id} ` + newMessage.message);
     });
 });
 
+async function previousMessages(socket, room) {
+    const messageCount = await Message.countDocuments({ roomname: room});//gets total number of messages
+
+    var messagesToDelete = 0;
+    if(messageCount > 50){
+        messagesToDelete = messageCount-50;
+    }
+    for(i = messagesToDelete; i > 0; i--){
+        await Message.deleteOne({ "roomname": room})
+    }
+
+    const previousMessages = await Message.find({ roomname: room })//gets all previous messages of specefic room
+    previousMessages.forEach((message) => {
+        socket.emit('chat message', 'Previous Message:' + message.message)//displays message text
+    })
+}
 
 server.listen(3000, () => {
     console.log(`Server running on https://localhost:${port}`);
