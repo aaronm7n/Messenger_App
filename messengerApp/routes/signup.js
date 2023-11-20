@@ -93,12 +93,19 @@ router.post('/', async (req, res) => {
 
         break;
     }while(false);
+    
     if(userInfo.password.length>9)
         passwordStrength++;
     if(userInfo.password != userInfo.password.toLowerCase())
         passwordStrength++;
-    console.log(passwordStrength);
-    if(!userInfo.username || !userInfo.password) {
+    
+    if(userInfo.password != userInfo.confirm){
+        res.render('signup_results', {
+            message: "Sorry, your passwords do not macth. Please try again.",
+            type: "error"
+        });
+    }
+    else if(!userInfo.username || !userInfo.password) {
         res.render('signup_results', {
             message: "Sorry, you have not provided all of the required information",
             type: "error"
