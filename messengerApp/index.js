@@ -1,5 +1,6 @@
 // Module imports
 const express = require('express');
+const Room = require('./models/room.js');
 const http = require('http');
 const { Server } = require("socket.io");
 const bodyParser = require('body-parser');
@@ -7,10 +8,11 @@ const multer = require('multer');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-         // This feature will temporarily store all the events that 
+         // This feature will temporarily store all the events that (NOT YET FUNCTIONAL)
          // are sent by the server and will try to restore the state of a client when it reconnects:
     connectionStateRecovery: {}
 });
@@ -67,6 +69,12 @@ const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
 const genChat = require('./routes/general_chat.js');
 app.use('/general_chat', genChat);
+const createRoom = require('./routes/create_room.js');
+app.use('/create_room', createRoom);
+const joinRoom = require('./routes/join_room.js');
+app.use('/join_room', joinRoom);
+const prvChat = require('./routes/private_chat.js');
+app.use('/private_chat', prvChat);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
@@ -90,6 +98,7 @@ io.on('connection', (socket) => {
         io.emit('chat message', `Annonymous user: ${socket.id} ` + msg);
     });
 });
+
 
 server.listen(3000, () => {
     console.log(`Server running on https://localhost:${port}`);
