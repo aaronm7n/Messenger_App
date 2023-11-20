@@ -84,15 +84,25 @@ app.get('*', (req, res) => {
 
 io.on('connection', async (socket) => {  
     console.log('a user connected');
+
+
     socket.on('disconnect', () => {
         console.log('a user disconnected')
+        if (socket.room) {
+            socket.leave(socket.room)
+        }
     });
 
     
 
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
+        if (socket.room) {
+            socket.leave(socket.room)
+        }
+        socket.join(room);
         socket.room = room;//sets the current room for the user
+        console.log(socket.room + "test");
         previousMessages(socket, `${room}`);//display previous messages in room
     });
     socket.on('chat message', (msg) => {
@@ -100,13 +110,17 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('chat message', (msg) => {
-        var newMessage = new Message({
-            message: msg,
-            roomname: socket.room,
-            username: socket.username
-        }); 
-        newMessage.save();
-        io.emit('chat message', `${socket.username}: ${socket.id} ` + newMessage.message);
+        console.log(socket.room);
+        if(socket.room){
+            var newMessage = new Message({
+                message: msg,
+                roomname: socket.room,
+                username: socket.username
+            }); 
+            newMessage.save();
+            io.to(socket.room).emit('chat message', `Annonymous: ${socket.id} ` + newMessage.message);
+        }
+        
     });
 });
 
