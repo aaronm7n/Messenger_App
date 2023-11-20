@@ -80,6 +80,7 @@ io.on('connection', async (socket) => {
         console.log('a user disconnected')
     });
 
+    
 
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
@@ -93,10 +94,11 @@ io.on('connection', async (socket) => {
     socket.on('chat message', (msg) => {
         var newMessage = new Message({
             message: msg,
-            roomname: socket.room
+            roomname: socket.room,
+            username: socket.username
         }); 
         newMessage.save();
-        io.emit('chat message', `Annonymous user: ${socket.id} ` + newMessage.message);
+        io.emit('chat message', `${socket.username}: ${socket.id} ` + newMessage.message);
     });
 });
 

@@ -10,6 +10,11 @@ const MessageSchema = new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 16
+    },
+    username: {
+        type: String,
+        maxlength: 16,
+        default: 'Anonymous'
     }
 })
 
