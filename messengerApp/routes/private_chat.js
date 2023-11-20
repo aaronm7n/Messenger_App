@@ -3,8 +3,11 @@ const router = express.Router();
 const Room = require('../models/room.js');
 
 router.get('/', (req, res) => {
-    res.sendFile('private_chat.html', { root: './views'});
     const roomname = req.session.room.roomName;
+    res.render('private_chat', {roomName: roomname});
+    
+    
+    console.log(roomname);
 });
 
 
