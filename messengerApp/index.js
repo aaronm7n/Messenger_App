@@ -93,8 +93,6 @@ io.on('connection', async (socket) => {
         }
     });
 
-    
-
     socket.on('joinRoom', (room) => {
         console.log(`${socket.id} just joined the room ${room}`);
         if (socket.room) {
@@ -102,7 +100,6 @@ io.on('connection', async (socket) => {
         }
         socket.join(room);
         socket.room = room;//sets the current room for the user
-        console.log(socket.room + "test");
         previousMessages(socket, `${room}`);//display previous messages in room
     });
     socket.on('chat message', (msg) => {

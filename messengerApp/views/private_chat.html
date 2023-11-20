@@ -1,12 +1,11 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/css/private_chat.css" />
+        <link rel="stylesheet" type="text/css" href="/css/general_chat.css" />
         <title>Private chat</title>
     </head>
     <body>
         <div>
-            <h1>#{roomName}</h1>
         </div>
         <ul id="messages"></ul>
         <form id="form" action="">
@@ -16,8 +15,8 @@
         <script>
         const socket = io();
 
-        socket.emit('joinRoom', 'privatechat');
-
+        socket.emit('joinRoom');
+        
         const messages = document.getElementById('messages');
         const form = document.getElementById('form');
         const input = document.getElementById('input');

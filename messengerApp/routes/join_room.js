@@ -42,6 +42,7 @@ router.post('/', async (req,res) => {
     }
     else{
         if (room.userList.includes(user.username)){
+            req.session.room = room;
             return res.redirect('/private_chat');
         }
         else {
