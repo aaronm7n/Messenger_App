@@ -34,6 +34,8 @@ Instructor: Dr. Nick Stiffler
 
 ## Project Management Information
 
+Heroku Permalink: <https://team07-messenger-app-58c08de05cae.herokuapp.com/>
+
 Management board: <https://trello.com/b/txjCjXfN/capstone-1-project>
 
 Source code repository: <https://github.com/lambertd4/Capstone1>
@@ -46,6 +48,9 @@ Source code repository: <https://github.com/lambertd4/Capstone1>
 |10/25/2023|  0.10		   | User registration has been added|
 |10/29/2023|  0.20		   | Login/Logout/Protected page added|
 |10/30/2023|  0.30		   | Update/Delete/Salt&Hash/CSS added|
+|11/15/2023|  0.40		   | General Chat Running|
+|11/19/2023|  0.30		   | Can Create Private Chats|
+|11/26/2023|  0.30		   | Provate Hats fully Operational|
 
 ## Overview
 
@@ -193,20 +198,41 @@ Below we show off two whole features! First we show you how we handle deleting a
         src= "code_snippets/update.png" />
 </p>
 
+### Private Messaging
+
+Our Private Messaging is shown below! This page is where you can send provate drect messages to other users! You may only send messages to a user that is signed in with an authenticated account, and has access to our protected pages!
+
+[comment]: <> (This is a placeholder image)
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/protectedpagejs.png" />
+</p>
+
+### General Messaging
+
+Our General Messaging is shown below! This page is where you can send group or general messages to other users all at once! Only a user that is signed in with an authenticated accountcan send messages!
+
+[comment]: <> (This is a placeholder image)
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/protectedpagejs.png" />
+</p>
+
 ## Deployment
 
-Describe how to deploy your system in a specific platform.
+We have deployed our application using Heroku. To do this you must link a repository with Heroku. To link the repositroy you must create a Heroku aplication and select deployement. After you tell your Heroku application that you want to deploy a github repository you simply need to link the two by signing into github and selecting which repository. Then you must select a branch to deploy from. This is likely going to be your master branch which in our case is called "main". This branch holds the most recent version of the application with completely working parts. With Heroku connected when you try to run the application you will get an error. That is becasue Heroku doesnt know where to run the application from. To fix this issue you simply need to create a file with imformation for Heroku. This file "package.json" tells Heroku we launch our application through index.js. By pushing this to the main branch Heroku will update and deploy our application.
 
-_(Coming soon)_
-
-
-## Software Process Management
-
-Include the Trello board with product backlog and sprint cycles in an overview
-figure.
-
-
-Also, include a Gantt chart that reflects the timeline from the Trello board.
+Heroku Permalink: <https://team07-messenger-app-58c08de05cae.herokuapp.com/>
+<img  
+    style="padding: 0px 0px 0px 20px" 
+    src= "https://i.imgur.com/pMLtd9P.png" />
+[comment]: <> (This is a placeholder image)
 
 ## Scrum Process
 
@@ -222,11 +248,21 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 **Sprint 1**
 1. Meeting on 10/24/23
-	Discussed who developes each use case. WOrked out work distribution for this phase.
+	Discussed who developes each use case. Worked out work distribution for this phase.
 	- Danny- Use Case Diagrams/Descriptions and Data Flow Diagrams
 	- Joe- Login
 	- Aaron- Registration
 	- Jon- Registration
+
+**Sprint 2**
+1. Meeting on 11/07/23
+	Discussed who developes what. 
+	- Danny- Documentation/Diagrams/ReadMe
+	- Joe- Messaging
+	- Aaron- Messaging
+	- Jon- Quality Of Life Updates
+
+## Software Process Management
 
 ### Sprint 0
 
@@ -241,6 +277,20 @@ Commits for Sprint 0.
 <img  
 style="padding: 0px 0px 0px 20px"
 src= "https://i.imgur.com/iyQVzya.png" />    
+
+#### Sprint 0 Completed Tasks
+
+1. Research angular.js and react.js for viable technologies
+2. Research socket.io and vue.js for viable technologies
+3. Use case Diagram and use cases desciptions created.
+4. Modify README.md to fulfil requirements for Team assignment 1.
+
+#### Sprint 0 Contributions:
+
+1.  Jonathan Pieroni, x hours, contributed in xxx
+2.  Daniel Lambert,   3 hours, contributed in Diagrams and Project Creation
+3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
+4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
 ### Sprint 1
 
@@ -274,19 +324,6 @@ Commits for Sprint 1.
 	style="padding: 0px 0px 0px 20px"
 	src= "https://i.imgur.com/qS8VpPQ.png" />
 
-#### Sprint 0 Completed Tasks
-
-1. Research angular.js and react.js for viable technologies
-2. Research socket.io and vue.js for viable technologies
-3. Use case Diagram and use cases desciptions created.
-4. Modify README.md to fulfil requirements for Team assignment 1.
-
-#### Sprint 0 Contributions:
-
-1.  Jonathan Pieroni, x hours, contributed in xxx
-2.  Daniel Lambert,   x hours, contributed in xxx
-3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
-4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
 ### Sprint 1 Completed Tasks
 
@@ -308,6 +345,59 @@ Commits for Sprint 1.
 3. Joseph Johnson, 18 hours, contributed in Javascript CSS and Pug for the following: Login, Logout, Protected Page. Assisted in CSS for all pages. Implementation, Overview, and minor edits accross the README file. Assisted in formating of presentation. 
 4.  Aaron McClellan,  24 hours, contributed in User registration, User update, User delete, All routing, setup, CSS, scrum manager, branch manager, debugging, README.md, and the USER model
 
+### Sprint 2
+
+Duration 10/31/2023 - 11/27/2023
+
+Trello for Sprint 2.
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/51B5K5s.png" />
+[comment]: <> (This is a placeholder image)
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/2FWWKAV.png" />
+
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/XoxIF63.png" />
+
+
+Commits for Sprint 2.
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/wP181ws.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/KVGvskc.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/VMUihz7.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/qS8VpPQ.png" />
+[comment]: <> (This is a placeholder image)
+
+### Sprint 2 Completed Tasks
+
+1. Created a Home Page
+2. Added password strength requirements and password confirmation on signup
+3. Created an Online/Offline System
+4. Created a Direct Messaging System for authenticated users
+5. Created a Group Messaging System for authenticated users
+6. Created authentication barriers for messaging 
+7. Moved account delete from the update page to its own protected page
+8. Created a Global Messaging System for all authenticated users
+9. Created a "User is typing" feature
+10. Added more profile information to users
+
+#### Sprint 2 Contributions:
+
+1.  Jonathan Pieroni, x hours, contributed in x
+2.  Daniel Lambert,   10 hours, contributed in all diagrams for Sprint 2 updated README.md and UseCases.md and made outline for presentation.
+3. Joseph Johnson, x hours, contributed in x
+4.  Aaron McClellan,  x hours, contributed in x
+
 #### Sprint Retrospective
 
 ###### Sprint 0
@@ -325,6 +415,15 @@ Commits for Sprint 1.
 |----------|:---------------------------:|------------------:|
 | Made several clear and specefic goals on our trello board | Communication on who should do what and in what order was lacking | Meeting more frequently to establish goals and focus on more specefic tasks |
 | Used a discord for online meet ups and updates  | Distribution of workload could have been better| As early as possible, discuss the distribution of work and make sure everyone starts early to improve timing |
+
+###### Sprint 1
+
+| Good     |   Could have been better    |  How to improve?  |
+|----------|:---------------------------:|------------------:|
+| Very distinct goals for each member which allowed us to worl simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fiing issues |
+
+
+
 ## User Guide/Demo
 
 
