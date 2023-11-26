@@ -6,6 +6,19 @@
     </head>
     <body>
         <div>
+            <form id="formA" action="" method="POST">
+                <h1>Join Room</h1>
+                <div class="div-roomName">
+                    <input id="roomName" autocomplete="off" name="roomName" type="text" required placeholder="Room Name"/>
+                </div>
+                <div class="div-roomCode">
+                    <input id="roomCode" autocomplete="off" name="roomCode" type="password" required placeholder="Room Code"/>
+                </div>
+                <div class="div-userName">
+                    <input id="userName" autocomplete="off" name="User Name" type="text" required placeholder="Username"/>
+                </div>
+                <button type="submit">Join Room</button>
+            </form> 
         </div>
         <ul id="messages"></ul>
         <form id="form" action="">
@@ -18,10 +31,22 @@
         //socket.emit('joinRoom', '');
         
         const messages = document.getElementById('messages');
-        const form = document.getElementById('form');
+        const formA = document.getElementById('formA');
         const input = document.getElementById('input');
+        const formB = document.getElementById('form');
+        const roomName = document.getElementById('roomName');
+        const roomCode = document.getElementById('roomCode');
+        const userName = document.getElementById('userName');
+
+
+        formA.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (roomName.value) {
+                socket.emit('joinRoom', roomName.value, roomCode.value, userName.value);
+            }
+        });
         
-        form.addEventListener('submit', function(e) {
+        formB.addEventListener('submit', function(e) {
             e.preventDefault();
             if (input.value) {
                 socket.emit('chat message', input.value);

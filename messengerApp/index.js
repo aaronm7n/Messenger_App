@@ -82,9 +82,8 @@ app.get('*', (req, res) => {
     res.render('home');
 });
 
-io.on('connection', async (socket) => {  
-    console.log('a user connected');
-
+io.on('connection', async (socket) => { 
+    console.log('user connected');
 
     socket.on('disconnect', () => {
         console.log('a user disconnected')
@@ -93,15 +92,24 @@ io.on('connection', async (socket) => {
         }
     });
 
-    socket.on('joinRoom', (room) => {
-        console.log(`${socket.id} just joined the room ${room}`);
-        if (socket.room) {
-            socket.leave(socket.room)
+    socket.on('joinRoom', (room, roomCode, user) => {
+        const access = userAccess(socket, room, roomCode, user);
+
+        if (access == true) {
+            console.log(`${socket.id} just joined the room ${room}`);
+            if (socket.room) {
+                socket.leave(socket.room)
+            }
+            socket.join(room);
+            socket.room = room;//sets the current room for the user
+            previousMessages(socket, `${room}`);//display previous messages in room
         }
-        socket.join(room);
-        socket.room = room;//sets the current room for the user
-        previousMessages(socket, `${room}`);//display previous messages in room
+        else {
+            console.log('User does not have access')
+        }
+        
     });
+
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
     });
@@ -115,7 +123,7 @@ io.on('connection', async (socket) => {
                 username: socket.username
             }); 
             newMessage.save();
-            io.to(socket.room).emit('chat message', `Annonymous: ${socket.id} ` + newMessage.message);
+            io.to(socket.room).emit('chat message', `User: ${socket.id} ` + newMessage.message);
         }
         
     });
@@ -136,7 +144,19 @@ async function previousMessages(socket, room) {
     previousMessages.forEach((message) => {
         socket.emit('chat message', 'Previous Message:' + message.message)//displays message text
     })
-}
+};
+
+async function userAccess(socket, room, roomCode, user) {
+    const userAccess = await Room.findOne({ roomName: room, roomCode, roomCode});
+    console.log(user)
+    console.log(userAccess.userList.includes(user));
+    if (userAccess.userList.includes(user)) {
+        return true; //User has access to the room
+    }
+    else {
+        return false;
+    }
+};
 
 server.listen(3000, () => {
     console.log(`Server running on https://localhost:${port}`);
