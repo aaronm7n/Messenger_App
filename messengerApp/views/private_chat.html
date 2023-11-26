@@ -3,6 +3,11 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/css/general_chat.css" />
         <title>Private chat</title>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <div>
@@ -43,6 +48,7 @@
             e.preventDefault();
             if (roomName.value) {
                 socket.emit('joinRoom', roomName.value, roomCode.value, userName.value);
+                formA.classList.add('hidden');
             }
         });
         
