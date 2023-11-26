@@ -93,17 +93,32 @@ io.on('connection', async (socket) => {
     socket.on('joinRoom', async (room, roomCode, user) => {
         const access = await (userAccess(room, roomCode, user));
         console.log(access);
-        if (access === true) {
-            console.log(`${socket.id} just joined the room ${room}`);
-            if (socket.room) {
-                socket.leave(socket.room)
+        socket.username = 'Annonymous'
+        if (room != 'generalChat') {
+            if (access === true) {
+                console.log(`${socket.id} just joined the room ${room}`);
+                if (socket.room) {
+                    socket.leave(socket.room)
+                }
+                socket.join(room);
+                socket.room = room;
+                socket.username = user;
+                previousMessages(socket, `${room}`);//display previous messages in room
             }
-            socket.join(room);
-            previousMessages(socket, `${room}`);//display previous messages in room
+    
+            if (access === false) {
+                console.log('User does not have access');
+            }
         }
-
-        if (access === false) {
-            console.log('User does not have access');
+        else {
+            console.log(`${socket.id} just joined the room ${room}`);
+                if (socket.room) {
+                    socket.leave(socket.room)
+                }
+                socket.join(room);
+                socket.room = room;
+                socket.username = user;
+                previousMessages(socket, 'generalChat');//display previous messages in room
         }
     });
 
@@ -120,7 +135,7 @@ io.on('connection', async (socket) => {
                 username: socket.username
             }); 
             newMessage.save();
-            io.to(socket.room).emit('chat message', `User: ${socket.id} ` + newMessage.message);
+            io.to(socket.room).emit('chat message', `${socket.username}: ` + newMessage.message);
         }
         
     });
