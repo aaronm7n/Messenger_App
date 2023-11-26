@@ -85,7 +85,12 @@ io.on('connection', async (socket) => {
 
     socket.on('disconnect', () => {
         console.log('a user disconnected')
-        if (socket.room) {
+        if (socket.room != 'generalChat') {
+            io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+            socket.leave(socket.room)
+        }
+        else {
+            io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now offline!`);
             socket.leave(socket.room)
         }
     });
@@ -103,6 +108,7 @@ io.on('connection', async (socket) => {
                 socket.join(room);
                 socket.room = room;
                 socket.username = user;
+                io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
                 previousMessages(socket, `${room}`);//display previous messages in room
             }
     
@@ -118,6 +124,7 @@ io.on('connection', async (socket) => {
                 socket.join(room);
                 socket.room = room;
                 socket.username = user;
+                io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now online!`);
                 previousMessages(socket, 'generalChat');//display previous messages in room
         }
     });
@@ -128,7 +135,7 @@ io.on('connection', async (socket) => {
 
     socket.on('chat message', (msg) => {
         console.log(socket.room);
-        if(socket.room){
+        if(socket.room != 'generalChat'){
             var newMessage = new Message({
                 message: msg,
                 roomname: socket.room,
@@ -137,7 +144,20 @@ io.on('connection', async (socket) => {
             newMessage.save();
             io.to(socket.room).emit('chat message', `${socket.username}: ` + newMessage.message);
         }
+        else {
+            var newMessage = new Message({
+                message: msg,
+                roomname: socket.room,
+                username: socket.username
+            }); 
+            newMessage.save();
+            io.to(socket.room).emit('chat message', `Annonymous User ${socket.id}: ` + newMessage.message);
+        }
         
+    });
+
+    socket.on('typing', function (data) {
+        socket.broadcasr.emit('typing', data);
     });
 });
 
