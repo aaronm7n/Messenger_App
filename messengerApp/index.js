@@ -58,6 +58,8 @@ const home = require('./routes/home.js');
 app.use('/', home);
 const signup = require('./routes/signup.js');
 app.use('/signup', signup);
+const add_to_room = require('./routes/add_to_room.js');
+app.use('/add_to_room', add_to_room);
 const login = require('./routes/login.js');
 app.use('/login', login);
 const logout = require('./routes/logout.js');

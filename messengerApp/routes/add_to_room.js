@@ -23,3 +23,5 @@ router.use (function(req, res, next) {
     res.locals.currentUser = req.session.user.username;
     next();
 });
+
+module.exports = router;
