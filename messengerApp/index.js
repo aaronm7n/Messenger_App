@@ -156,6 +156,7 @@ io.on('connection', async (socket) => {
         
     });
 
+    // Unfinished
     socket.on('typing', function (data) {
         socket.broadcasr.emit('typing', data);
     });

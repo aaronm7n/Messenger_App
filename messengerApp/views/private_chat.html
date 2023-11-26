@@ -55,6 +55,7 @@
             }
         });
 
+        // unfinished
         input.addEventListener('keyup', function(e) {
             e.preventDefault();
             console.log('user is typing');
@@ -68,6 +69,7 @@
             window.scrollTo(0, document.body.scrollHeight);
         });
 
+        // unfinished
         socket.on('typing', function(data){
             if (data) {
                 typing.innerHTML = `<p>${socket.username} is typing ... </p>`;
