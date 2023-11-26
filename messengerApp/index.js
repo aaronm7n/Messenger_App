@@ -72,8 +72,6 @@ const genChat = require('./routes/general_chat.js');
 app.use('/general_chat', genChat);
 const createRoom = require('./routes/create_room.js');
 app.use('/create_room', createRoom);
-const joinRoom = require('./routes/join_room.js');
-app.use('/join_room', joinRoom);
 const prvChat = require('./routes/private_chat.js');
 app.use('/private_chat', prvChat);
 
@@ -92,22 +90,21 @@ io.on('connection', async (socket) => {
         }
     });
 
-    socket.on('joinRoom', (room, roomCode, user) => {
-        const access = userAccess(socket, room, roomCode, user);
-
-        if (access == true) {
+    socket.on('joinRoom', async (room, roomCode, user) => {
+        const access = await (userAccess(room, roomCode, user));
+        console.log(access);
+        if (access === true) {
             console.log(`${socket.id} just joined the room ${room}`);
             if (socket.room) {
                 socket.leave(socket.room)
             }
             socket.join(room);
-            socket.room = room;//sets the current room for the user
             previousMessages(socket, `${room}`);//display previous messages in room
         }
-        else {
-            console.log('User does not have access')
+
+        if (access === false) {
+            console.log('User does not have access');
         }
-        
     });
 
     socket.on('chat message', (msg) => {
@@ -146,15 +143,13 @@ async function previousMessages(socket, room) {
     })
 };
 
-async function userAccess(socket, room, roomCode, user) {
+async function userAccess(room, roomCode, user) {
     const userAccess = await Room.findOne({ roomName: room, roomCode, roomCode});
-    console.log(user)
-    console.log(userAccess.userList.includes(user));
-    if (userAccess.userList.includes(user)) {
-        return true; //User has access to the room
+    if (!userAccess) {
+        console.log('This room does not exist');
     }
     else {
-        return false;
+        return (userAccess.userList.includes(user));
     }
 };
 
