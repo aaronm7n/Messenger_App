@@ -15,7 +15,7 @@ const checkSignIn = (req, res, next) => {
 
 // Create Room GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('create_room');
+    res.render('add_to_room');
 });
 
 // This allows us to know which user is currently logged in so we know what data to change

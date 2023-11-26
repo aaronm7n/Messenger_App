@@ -154,7 +154,7 @@ async function previousMessages(socket, room) {
 
     const previousMessages = await Message.find({ roomname: room })//gets all previous messages of specefic room
     previousMessages.forEach((message) => {
-        socket.emit('chat message', 'Previous Message:' + message.message)//displays message text
+        socket.emit('chat message', socket.username + ": " + message.message)//displays message text
     })
 };
 
