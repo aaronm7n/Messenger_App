@@ -74,6 +74,8 @@ const createRoom = require('./routes/create_room.js');
 app.use('/create_room', createRoom);
 const prvChat = require('./routes/private_chat.js');
 app.use('/private_chat', prvChat);
+const regGenChat = require('./routes/regGenChat.js');
+app.use('/regGenChat', regGenChat);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
@@ -100,21 +102,35 @@ io.on('connection', async (socket) => {
         console.log(access);
         socket.username = 'Annonymous'
         if (room != 'generalChat') {
-            if (access === true) {
-                console.log(`${socket.id} just joined the room ${room}`);
-                if (socket.room) {
-                    socket.leave(socket.room)
+            if (room != 'regGenChat') {
+                if (access === true) {
+                    console.log(`${socket.id} just joined the room ${room}`);
+                    if (socket.room) {
+                        socket.leave(socket.room)
+                    }
+                    socket.join(room);
+                    socket.room = room;
+                    socket.username = user;
+                    io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
+                    previousMessages(socket, `${room}`);//display previous messages in room
                 }
-                socket.join(room);
-                socket.room = room;
-                socket.username = user;
-                io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
-                previousMessages(socket, `${room}`);//display previous messages in room
+        
+                if (access === false) {
+                    console.log('User does not have access');
+                }
             }
-    
-            if (access === false) {
-                console.log('User does not have access');
+            else {
+                console.log(`${socket.id} just joined the room ${room}`);
+                    if (socket.room) {
+                        socket.leave(socket.room)
+                    }
+                    socket.join(room);
+                    socket.room = room;
+                    socket.username = user;
+                    io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
+                    previousMessages(socket, `${room}`);//display previous messages in room
             }
+            
         }
         else {
             console.log(`${socket.id} just joined the room ${room}`);

@@ -14,7 +14,7 @@
         <script>
         const socket = io();
 
-        socket.emit('joinRoom', 'generalChat', '');
+        socket.emit('joinRoom', 'generalChat');
 
         const messages = document.getElementById('messages');
         const form = document.getElementById('form');
