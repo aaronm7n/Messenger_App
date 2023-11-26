@@ -50,7 +50,7 @@ Source code repository: <https://github.com/lambertd4/Capstone1>
 |10/30/2023|  0.30		   | Update/Delete/Salt&Hash/CSS added|
 |11/15/2023|  0.40		   | General Chat Running|
 |11/19/2023|  0.30		   | Can Create Private Chats|
-|11/26/2023|  0.30		   | Provate Hats fully Operational|
+|11/26/2023|  0.30		   | Provate Chats fully Operational|
 
 ## Overview
 
@@ -266,7 +266,7 @@ Heroku Permalink: <https://team07-messenger-app-58c08de05cae.herokuapp.com/>
 
 ### Sprint 0
 
-Duration: 18/09/2023 - 21/09/2023
+Duration: 09/18/2023 - 09/21/2023
 
 Trello for Sprint 0.
 <img  
@@ -294,7 +294,7 @@ src= "https://i.imgur.com/iyQVzya.png" />
 
 ### Sprint 1
 
-Duration 18/10/2023 - 31/10/2023
+Duration 10/18/2023 - 10/31/2023
 
 Trello for Sprint 1.
 <img  
@@ -416,15 +416,15 @@ Commits for Sprint 2.
 | Made several clear and specefic goals on our trello board | Communication on who should do what and in what order was lacking | Meeting more frequently to establish goals and focus on more specefic tasks |
 | Used a discord for online meet ups and updates  | Distribution of workload could have been better| As early as possible, discuss the distribution of work and make sure everyone starts early to improve timing |
 
-###### Sprint 1
+###### Sprint 2
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
-| Very distinct goals for each member which allowed us to worl simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fiing issues |
+| Very distinct goals for each member which allowed us to worl simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fixing issues |
 
 
 
 ## User Guide/Demo
 
 
-[Demo](DemoSprint1.mp4)
+[Sprint1Demo](DemoSprint1.mp4)
