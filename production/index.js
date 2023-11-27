@@ -14,7 +14,9 @@ const Message = require('./models/message.js');
 
 const upload = multer();
 
-const port = process.env.PORT || 3003;
+
+const port = process.env.PORT || 3000;
+
 
 const username = "admin"
 const password = "5Vb5EswuNxFZgD6h"
