@@ -34,6 +34,8 @@ Instructor: Dr. Nick Stiffler
 
 ## Project Management Information
 
+Heroku Permalink: <https://team07-messenger-app-d29ba6b15c4a.herokuapp.com/>
+
 Management board: <https://trello.com/b/txjCjXfN/capstone-1-project>
 
 Source code repository: <https://github.com/lambertd4/Capstone1>
@@ -46,10 +48,13 @@ Source code repository: <https://github.com/lambertd4/Capstone1>
 |10/25/2023|  0.10		   | User registration has been added|
 |10/29/2023|  0.20		   | Login/Logout/Protected page added|
 |10/30/2023|  0.30		   | Update/Delete/Salt&Hash/CSS added|
+|11/15/2023|  0.40		   | General Chat Running|
+|11/19/2023|  0.50		   | Can Create Private Chats|
+|11/26/2023|  0.60		   | Private Chats fully Operational|
 
 ## Overview
 
-We are at the end of our first sprint, adding many new features to our app! We made it so that we have users who can register for an account, login to their profile to access their own protected page, and edit their profile! Our main focus for this sprint was setting up our user database and giving user's some options for their profile. Users will be able to change their password and delete their account if they want to. In addition to this we made it so passwords were salted and hashed instead of stored plainly in our database. Also we worked on our route structure, making it much more clean and easy to tell which routes lead where. We also wanted to begin to think of design ideas for the future of our webapp! We agreed upon a color palate that we plan on implementing into all future pages via css routes. 
+We are at the end of our second sprint, we have added many new features to our app! We made it so that we unregistered users have access to an annonymous chat. As for our registered users they can create private chat rooms, give users access to these rooms, join the privat rooms, and join a general chat for registered users only. Our best feature by far this sprint is the ability to retore the 50 most recent messages for each chat room. Our main focus for this sprint was making chat rooms that allowed only certain users. This allowed us to have the option to do both private messaging and group messages at the same time. In addition we have started to implement design changes to make our website more appealing to the average user. Throughout this sprint we gained a much better understanding of socket.io and the client server relationship.
 
 
 ## System Analysis
@@ -103,9 +108,33 @@ In the code snippit below you can see how we made our user model. Our username i
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="450" 
+        width="" 
         height="450"
         src= "code_snippets/user.js.png" />
+</p>
+
+### Room Model
+
+In the code snippit below you can see how we made our room model. Our roomName is stored in a 16 bit String and our roomCode a 64 bit Strin. These two together make up the unique identifier for the room. This allows multiple people to have the same room name. An admin which is the user who creates the room. This allows us to make it so that only the admin can add users to the rooms access database, and an array of Strings that contains all of the users who have access to that room. This allows us to prevent unauthorized users access to the chat room.
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="325" 
+        height="350"
+        src= "code_snippets/room.js.png" />
+</p>
+
+### Message Model
+
+In the code snippit below you can see how we made our message model. As you can see we when a message is created we save the roomname of the room the message was sent so we know which room to display it in. In addition we save the actual contents of the message and the username of the one who wrote the message. This is all important not only for displaying the message in real time, but also for our display previous messages function. Our previous message function displays the most recent 50 messages sent in our chat rooms, however it has a secondary purpose. It also deletes all messages exceeding 50 for each room, keeping our database cleaner that it would be without the restriction. 
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="700" 
+        height="350"
+        src= "code_snippets/previousMessages.png" />
 </p>
 
 ### Database Connection
@@ -120,9 +149,11 @@ In the snippet below we can see our mongoose database connection made at the top
         src= "code_snippets/mongoose.png" />
 </p>
 
+### Socket.io Sever Initialization
+
 ### Routing
 
-In this example we can see how our routin is handled after database connection! We made a folder for each route of our page, but by using index we have made highway to all of them in one page, which allows us to use run our server using just index for multiple routes on one clean page. 
+In this example we can see how our routing is handled after database connection! We made a folder for each route of our page, but by using index we have made highway to all of them in one page, which allows us to use run our server using just index for multiple routes on one clean page. 
 
 <p align="center">
     <img  
@@ -193,20 +224,58 @@ Below we show off two whole features! First we show you how we handle deleting a
         src= "code_snippets/update.png" />
 </p>
 
+### Create Room
+
+Below is our routing that allows us to create our Private chat rooms! We first check to make sure that there is a registered user signed in, otherwise they should not have access. Once we recieve an form submission we check to see if the form was filed out correctly. If it was we save the parsed info into the room module and save it to the database.
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        src= "code_snippets/create_room.js.png" />
+</p>
+
+### Add User to Room
+Below we are going to show you how we add a user to a room! When you are adding someone to a room you input the roomName, roomCode, and userName of the user who you want to add to the room. By asking for the roomName and roomCode we identify the specefic room and allow you to have a level of security to adding to rooms. We check to see if the room exists first, and if so we find the room in our database and push the userName to that rooms specefic userList. In the future we want to make it so you also have to have the admin attribute of the room to add a user, and would also like to display the roomname and roomcode of the rooms you already joined on this page!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="550" 
+        height="450"
+        src= "code_snippets/addtoroom.png" />
+</p>
+(apologies for the console log we were testing the post request)
+
+### Private Messaging
+
+Our Private Messaging is shown below! This page is where you can send provate drect messages to other users! You may only send messages to a user that is signed in with an authenticated account, and has access to our protected pages! The way this works is we first connect to the socket and set up a const for most of the information inputs on the page. we then add event listeners to the forms. formA when subitted will set which room will have its messages loaded as well as test if the user has access. Once submitted the div is then hidden. Form b looks for what message the user is sending. When the socket recieves this message it adds the message to the page. We are also currently attempting to add a User is typing feature but it does not currently work.
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        src= "code_snippets/private_chat.html.png" />
+</p>
+
+### General Messaging (For both registered and non-registered users)
+
+Our General Messaging is shown below! This page is where you can send group or general messages to other users all at once! Only a user that is signed in with an authenticated accountcan send messages!
+
+[comment]: <> (This is a placeholder image)
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "code_snippets/generalchat.png" />
+</p>
+
 ## Deployment
 
-Describe how to deploy your system in a specific platform.
+We have deployed our application using Heroku. To do this you must link a repository with Heroku. To link the repositroy you must create a Heroku aplication and select deployement. After you tell your Heroku application that you want to deploy a github repository you simply need to link the two by signing into github and selecting which repository. Then you must select a branch to deploy from. This is likely going to be your master branch which in our case is called "main". This branch holds the most recent version of the application with completely working parts. With Heroku connected when you try to run the application you will get an error. That is becasue Heroku doesnt know where to run the application from. To fix this issue you simply need to create a file with imformation for Heroku. This file "package.json" tells Heroku we launch our application through index.js. By pushing this to the main branch Heroku will update and deploy our application.
 
-_(Coming soon)_
-
-
-## Software Process Management
-
-Include the Trello board with product backlog and sprint cycles in an overview
-figure.
+Heroku Permalink: <https://team07-messenger-app-d29ba6b15c4a.herokuapp.com/>
 
 
-Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 ## Scrum Process
 
@@ -222,15 +291,25 @@ Also, include a Gantt chart that reflects the timeline from the Trello board.
 
 **Sprint 1**
 1. Meeting on 10/24/23
-	Discussed who developes each use case. WOrked out work distribution for this phase.
+	Discussed who developes each use case. Worked out work distribution for this phase.
 	- Danny- Use Case Diagrams/Descriptions and Data Flow Diagrams
 	- Joe- Login
 	- Aaron- Registration
 	- Jon- Registration
 
+**Sprint 2**
+1. Meeting on 11/07/23
+	Discussed who developes what. 
+	- Danny- Documentation/Diagrams/ReadMe
+	- Joe- Messaging
+	- Aaron- Messaging
+	- Jon- Quality Of Life Updates
+
+## Software Process Management
+
 ### Sprint 0
 
-Duration: 18/09/2023 - 21/09/2023
+Duration: 09/18/2023 - 09/21/2023
 
 Trello for Sprint 0.
 <img  
@@ -242,9 +321,23 @@ Commits for Sprint 0.
 style="padding: 0px 0px 0px 20px"
 src= "https://i.imgur.com/iyQVzya.png" />    
 
+#### Sprint 0 Completed Tasks
+
+1. Research angular.js and react.js for viable technologies
+2. Research socket.io and vue.js for viable technologies
+3. Use case Diagram and use cases desciptions created.
+4. Modify README.md to fulfil requirements for Team assignment 1.
+
+#### Sprint 0 Contributions:
+
+1.  Jonathan Pieroni, x hours, contributed in xxx
+2.  Daniel Lambert,   3 hours, contributed in Diagrams and Project Creation
+3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
+4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
+
 ### Sprint 1
 
-Duration 18/10/2023 - 31/10/2023
+Duration 10/18/2023 - 10/31/2023
 
 Trello for Sprint 1.
 <img  
@@ -274,19 +367,6 @@ Commits for Sprint 1.
 	style="padding: 0px 0px 0px 20px"
 	src= "https://i.imgur.com/qS8VpPQ.png" />
 
-#### Sprint 0 Completed Tasks
-
-1. Research angular.js and react.js for viable technologies
-2. Research socket.io and vue.js for viable technologies
-3. Use case Diagram and use cases desciptions created.
-4. Modify README.md to fulfil requirements for Team assignment 1.
-
-#### Sprint 0 Contributions:
-
-1.  Jonathan Pieroni, x hours, contributed in xxx
-2.  Daniel Lambert,   x hours, contributed in xxx
-3.  Joseph Johnson,   5 hours, contributed in reasearch of Angular and React, pushed changes to READ.ME
-4.  Aaron McClellan,  6 hours, contributed in Socket.io and vue.js research, Modify README.md to meet assignment 1 requirments
 
 ### Sprint 1 Completed Tasks
 
@@ -308,6 +388,60 @@ Commits for Sprint 1.
 3. Joseph Johnson, 18 hours, contributed in Javascript CSS and Pug for the following: Login, Logout, Protected Page. Assisted in CSS for all pages. Implementation, Overview, and minor edits accross the README file. Assisted in formating of presentation. 
 4.  Aaron McClellan,  24 hours, contributed in User registration, User update, User delete, All routing, setup, CSS, scrum manager, branch manager, debugging, README.md, and the USER model
 
+### Sprint 2
+
+Duration 10/31/2023 - 11/27/2023
+
+Trello for Sprint 2.
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/3WD1ATp.png" />
+
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/B7zSCc9.png" />
+
+
+Commits for Sprint 2.
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/UjqeOMM.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/cfzneuJ.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/0nMUdAN.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/TSRhfC4.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/OPCKfDE.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/74dsU1e.png" />
+
+### Sprint 2 Completed Tasks
+
+1. Created a Home Page
+2. Added password strength requirements and password confirmation on signup
+3. Created an Online/Offline System
+4. Created a Direct Messaging System for authenticated users
+5. Created a Group Messaging System for authenticated users
+6. Created authentication barriers for messaging 
+7. Moved account delete from the update page to its own protected page
+8. Created a Global Messaging System for all authenticated users
+9. Created a Global Messaging System for all unauthenticated users
+10. Display old messages in rooms
+
+#### Sprint 2 Contributions:
+
+1.  Jonathan Pieroni, 15 hours, contributed in password confirmation in sign up, password strength requirement on signup as well as Heroku deployment.
+2.  Daniel Lambert,   15 hours, contributed in all diagrams for Sprint 2 updated README.md and UseCases.md and made outline for presentation.
+3. Joseph Johnson, 28 hours, contributed in Message model, previousMessages function, General message css, Add to room/Create room css, Read.Me, index.js, socket global message formula, trello board, minor contributions in the following: general_chat.js, privat_chat.html, create_room.js, regGenChat.js, and others.
+4.  Aaron McClellan,  34 hours, contributed in READ.ME, create_room.js, general_chat.js, home.js, private_chat.js, regGenChat.js, create_room.pug, general_chat.html, home.pug, private_chat.html, regGenChat.html, delete.pug, delete.js, Most css files, Git manager, trello board managing, index.js socket.io initialization.
+
 #### Sprint Retrospective
 
 ###### Sprint 0
@@ -325,7 +459,19 @@ Commits for Sprint 1.
 |----------|:---------------------------:|------------------:|
 | Made several clear and specefic goals on our trello board | Communication on who should do what and in what order was lacking | Meeting more frequently to establish goals and focus on more specefic tasks |
 | Used a discord for online meet ups and updates  | Distribution of workload could have been better| As early as possible, discuss the distribution of work and make sure everyone starts early to improve timing |
+
+###### Sprint 2
+
+| Good     |   Could have been better    |  How to improve?  |
+|----------|:---------------------------:|------------------:|
+| Very distinct goals for each member which allowed us to work simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fixing issues | 
+| Simotainious additions to the project from each member | Differing issues between peoples computers  | Making sure everything works on heroku before continueing further development |
+
+
+
+
 ## User Guide/Demo
 
 
-[Demo](DemoSprint1.mp4)
+[Sprint1Demo](DemoSprint1.mp4)
+[Sprint2Demo](DemoSprint2.mp4)

@@ -196,7 +196,7 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
+        width="650" 
         height="350"
         src= "https://i.imgur.com/yBAhS5O.png" />
 </p>
@@ -222,7 +222,125 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
+        width="650" 
         height="350"
         src= "https://i.imgur.com/qpowqrq.png" />
+</p>
+
+# Phase 2 Documentation
+
+## Use Cases
+
+### Phase Wide Use Case Diagram
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="650" 
+        height="300"
+        src= "https://i.imgur.com/qLIQWTp.png" />
+</p>
+
+### Authenticated User Group Messaging
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="400" 
+        height="320"
+        src= "https://i.imgur.com/b8BKEI6.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "https://i.imgur.com/BAkwKLJ.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="700" 
+        height="250"
+        src= "https://i.imgur.com/EVtTMtb.png" />
+</p>
+
+### Authenticated User Private Messaging
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="400" 
+        height="320"
+        src= "https://i.imgur.com/3Nq88qc.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "https://i.imgur.com/9amsjOk.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="700" 
+        height="250"
+        src= "https://i.imgur.com/PZ44Vej.png" />
+</p>
+
+### Authenticated User Global Messaging
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="400" 
+        height="320"
+        src= "https://i.imgur.com/x2klwze.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "https://i.imgur.com/uRuzEUE.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="700" 
+        height="250"
+        src= "https://i.imgur.com/72Bkoye.png" />
+</p>
+
+### Unauthenticated User Messenger Access
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="400" 
+        height="320"
+        src= "https://i.imgur.com/hNpZPDT.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="450" 
+        height="450"
+        src= "https://i.imgur.com/tBB4EUo.png" />
+</p>
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="430" 
+        height="250"
+        src= "https://i.imgur.com/U5uhcL4.png" />
 </p>
