@@ -266,7 +266,7 @@ Our General Messaging is shown below! This page is where you can send group or g
         style="padding: 0px 0px 0px 20px" 
         width="450" 
         height="450"
-        src= "code_snippets/protectedpagejs.png" />
+        src= "code_snippets/generalchat.png" />
 </p>
 
 ## Deployment
