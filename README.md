@@ -266,7 +266,7 @@ Our General Messaging is shown below! This page is where you can send group or g
         style="padding: 0px 0px 0px 20px" 
         width="450" 
         height="450"
-        src= "code_snippets/protectedpagejs.png" />
+        src= "code_snippets/generalchat.png" />
 </p>
 
 ## Deployment
@@ -395,31 +395,32 @@ Duration 10/31/2023 - 11/27/2023
 Trello for Sprint 2.
 <img  
 	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/51B5K5s.png" />
-[comment]: <> (This is a placeholder image)
-<img  
-	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/2FWWKAV.png" />
+	src= "https://i.imgur.com/3WD1ATp.png" />
 
 <img  
 	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/XoxIF63.png" />
+	src= "https://i.imgur.com/B7zSCc9.png" />
 
 
 Commits for Sprint 2.
 <img  
 	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/wP181ws.png" />
+	src= "https://i.imgur.com/UjqeOMM.png" />
 <img  
 	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/KVGvskc.png" />
+	src= "https://i.imgur.com/cfzneuJ.png" />
 <img  
 	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/VMUihz7.png" />
+	src= "https://i.imgur.com/0nMUdAN.png" />
 <img  
 	style="padding: 0px 0px 0px 20px"
-	src= "https://i.imgur.com/qS8VpPQ.png" />
-[comment]: <> (This is a placeholder image)
+	src= "https://i.imgur.com/TSRhfC4.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/OPCKfDE.png" />
+<img  
+	style="padding: 0px 0px 0px 20px"
+	src= "https://i.imgur.com/74dsU1e.png" />
 
 ### Sprint 2 Completed Tasks
 
