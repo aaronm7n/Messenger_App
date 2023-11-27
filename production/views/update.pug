@@ -1,0 +1,21 @@
+doctype html
+html 
+    head 
+        title Update Profile 
+        link(rel="stylesheet" href="/css/update.css")
+    body 
+        div(class="div-wrapper")
+            br
+            if(message)
+                h4 #{message}
+            form(action = "/update", method = "POST")
+                div(class="div-wrapper4")
+                    h3 To change your password,enter it in the box below!
+                br
+                div(class="div-wrapper2")
+                    
+                    div(class="div-newPassword")
+                        label(for = "password") New Password: 
+                        input(name = "password")
+                br
+                button(type = "submit") Update!

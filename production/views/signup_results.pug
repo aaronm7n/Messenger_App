@@ -1,0 +1,18 @@
+doctype html
+html 
+    head 
+        title Results 
+        link(rel="stylesheet" href="/css/signup_results.css")
+    body 
+        div(class="div-wrapper") 
+            br  
+            if(type == "error")
+                div(class="div-wrapper2")
+                    h2(style = "color:red") #{message}
+                br
+                a(href="/signup") 
+                    button Go Back?
+            else 
+                h2 New User, #{user.username} has been created!
+                a(href="/login")
+                    button Login
