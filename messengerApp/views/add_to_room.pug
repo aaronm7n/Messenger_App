@@ -7,14 +7,14 @@ html
     body
         div-wrapper
             div(class="div-wrapper")
-                form(action = "/create_room", method = "POST")
+                form(action = "/add_to_room", method = "POST")
                     h1 Add Someone To A Room!
                     div(class="div-input")
-                        input(name = "roomName")
+                        input(name = "newUserName")
                 
                     div(class="div-input")
-                        input(name = "roomCode")
+                        input(name = "roomName")
                     div(class="div-input")
-                        input(name = "userName")
+                        input(name = "roomCode")
                     button(type = "submit") Join Room
             
