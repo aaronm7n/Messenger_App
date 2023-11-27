@@ -14,7 +14,7 @@ const Message = require('./models/message.js');
 
 const upload = multer();
 
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
 
 const username = "admin"
 const password = "5Vb5EswuNxFZgD6h"
@@ -202,10 +202,10 @@ async function userAccess(room, roomCode, user) {
     }
 };
 
-httpServer.listen(port, () => {
-    console.log(`Server running on https://localhost:${port}`);
-});
+//httpServer.listen(port, () => {
+    //console.log(`Server running on https://localhost:${port}`);
+//});
 
-app.listen(port, () => {
-    console.log(`Messanger app listening on port ${port}`);
-});
+//app.listen(port, () => {
+    //console.log(`Messanger app listening on port ${port}`);
+//});
