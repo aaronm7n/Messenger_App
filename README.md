@@ -34,7 +34,7 @@ Instructor: Dr. Nick Stiffler
 
 ## Project Management Information
 
-Heroku Permalink: <https://team07-messenger-app-58c08de05cae.herokuapp.com/>
+Heroku Permalink: <https://team07-messenger-app-d29ba6b15c4a.herokuapp.com/>
 
 Management board: <https://trello.com/b/txjCjXfN/capstone-1-project>
 
@@ -273,11 +273,9 @@ Our General Messaging is shown below! This page is where you can send group or g
 
 We have deployed our application using Heroku. To do this you must link a repository with Heroku. To link the repositroy you must create a Heroku aplication and select deployement. After you tell your Heroku application that you want to deploy a github repository you simply need to link the two by signing into github and selecting which repository. Then you must select a branch to deploy from. This is likely going to be your master branch which in our case is called "main". This branch holds the most recent version of the application with completely working parts. With Heroku connected when you try to run the application you will get an error. That is becasue Heroku doesnt know where to run the application from. To fix this issue you simply need to create a file with imformation for Heroku. This file "package.json" tells Heroku we launch our application through index.js. By pushing this to the main branch Heroku will update and deploy our application.
 
-Heroku Permalink: <https://team07-messenger-app-58c08de05cae.herokuapp.com/>
-<img  
-    style="padding: 0px 0px 0px 20px" 
-    src= "https://i.imgur.com/pMLtd9P.png" />
-[comment]: <> (This is a placeholder image)
+Heroku Permalink: <https://team07-messenger-app-d29ba6b15c4a.herokuapp.com/>
+
+
 
 ## Scrum Process
 
@@ -438,8 +436,8 @@ Commits for Sprint 2.
 
 #### Sprint 2 Contributions:
 
-1.  Jonathan Pieroni, x hours, contributed in x
-2.  Daniel Lambert,   10 hours, contributed in all diagrams for Sprint 2 updated README.md and UseCases.md and made outline for presentation.
+1.  Jonathan Pieroni, 15 hours, contributed in password confirmation in sign up, password strength requirement on signup as well as Heroku deployment.
+2.  Daniel Lambert,   15 hours, contributed in all diagrams for Sprint 2 updated README.md and UseCases.md and made outline for presentation.
 3. Joseph Johnson, 28 hours, contributed in Message model, previousMessages function, General message css, Add to room/Create room css, Read.Me, index.js, socket global message formula, trello board, minor contributions in the following: general_chat.js, privat_chat.html, create_room.js, regGenChat.js, and others.
 4.  Aaron McClellan,  34 hours, contributed in READ.ME, create_room.js, general_chat.js, home.js, private_chat.js, regGenChat.js, create_room.pug, general_chat.html, home.pug, private_chat.html, regGenChat.html, delete.pug, delete.js, Most css files, Git manager, trello board managing, index.js socket.io initialization.
 
@@ -465,7 +463,9 @@ Commits for Sprint 2.
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
-| Very distinct goals for each member which allowed us to work simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fixing issues |
+| Very distinct goals for each member which allowed us to work simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fixing issues | 
+| Simotainious additions to the project from each member | Differing issues between peoples computers  | Making sure everything works on heroku before continueing further development |
+
 
 
 
