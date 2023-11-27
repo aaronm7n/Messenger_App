@@ -1,17 +1,17 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/css/general_chat.css" />
+        <link rel="stylesheet" type="text/css" href="/css/regGenChat.css" />
         <title>Private chat</title>
     </head>
     <body>
-        <div>
+        <div id="bigDiv" class="div-wrapper">
             <form id="formA" action="" method="POST">
-                <h1>Enter Your Name!</h1>
+                <h1 class="header">Enter Your Name</h1>
                 <div class="div-userName">
                     <input id="userName" autocomplete="off" name="User Name" type="text" required placeholder="Username"/>
                 </div>
-                <button type="submit">Enter</button>
+                <button class="nameSubmit" type="submit">Enter</button>
             </form> 
         </div>
         <em id="typing"></em>
@@ -27,6 +27,7 @@
         
         const typing = document.getElementById('typing')
         const messages = document.getElementById('messages');
+        const bigDiv = document.getElementById('bigDiv');
         const formA = document.getElementById('formA');
         const input = document.getElementById('input');
         const formB = document.getElementById('form');
@@ -34,8 +35,10 @@
 
         formA.addEventListener('submit', function(e) {
             e.preventDefault();
-            if (userName) {
+            if (userName.value) {
                 socket.emit('joinRoom', 'regGenChat', '',  userName.value);
+                formA.classList.add('hidden');
+                bigDiv.classList.add('hidden');
             }
         });
         

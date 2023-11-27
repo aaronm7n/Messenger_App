@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/css/general_chat.css" />
+        <link rel="stylesheet" type="text/css" href="/css/private_chat.css" />
         <title>Private chat</title>
         <style>
             .hidden {
@@ -10,9 +10,8 @@
         </style>
     </head>
     <body>
-        <div>
+        <div id="bigDiv" class="div-wrapper">
             <form id="formA" action="" method="POST">
-                <h1>Join Room</h1>
                 <div class="div-roomName">
                     <input id="roomName" autocomplete="off" name="roomName" type="text" required placeholder="Room Name"/>
                 </div>
@@ -22,7 +21,9 @@
                 <div class="div-userName">
                     <input id="userName" autocomplete="off" name="User Name" type="text" required placeholder="Username"/>
                 </div>
-                <button type="submit">Join Room</button>
+                <div class="button-wrapper">
+                    <button class="joinRoom" type="submit">Join Room</button>
+                </div>
             </form> 
         </div>
         <em id="typing"></em>
@@ -39,6 +40,7 @@
         const typing = document.getElementById('typing')
         const messages = document.getElementById('messages');
         const formA = document.getElementById('formA');
+        const bigDiv = document.getElementById('bigDiv');
         const input = document.getElementById('input');
         const formB = document.getElementById('form');
         const roomName = document.getElementById('roomName');
@@ -50,6 +52,7 @@
             if (roomName.value) {
                 socket.emit('joinRoom', roomName.value, roomCode.value, userName.value);
                 formA.classList.add('hidden');
+                bigDiv.classList.add('hidden');
             }
         });
         

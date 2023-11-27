@@ -4,38 +4,19 @@ body {
 }
 
 .div-wrapper{
-    background-color: #1f0f66;
+    background-color: #40124C;
+    border-radius: 5px;
     width: 350px;
     height: 510px;
     margin: auto;
-    border-radius: 50px;
-    border: 5px solid #40124C;
 }
 
 .title-wrapper{
     background-color: #880085;
-    width: 300px;
-    height: 100px;
+    width: 325px;
+    height: 450px;
     margin: auto;
-    border-radius: 20px;
-    border: 5px solid #40124C;
-}
-
-.query-wrapper{
-    background-color: #880085;
-    width: 300px;
-    height: 160px;
-    margin: auto;
-    border-radius: 20px;
-    border: 5px solid #40124C;
-}
-
-.button-wrapper{
-    background-color: #880085;
-    width: 300px;
-    height: 140px;
-    margin: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 5px solid #40124C;
 }
 
