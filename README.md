@@ -49,8 +49,8 @@ Source code repository: <https://github.com/lambertd4/Capstone1>
 |10/29/2023|  0.20		   | Login/Logout/Protected page added|
 |10/30/2023|  0.30		   | Update/Delete/Salt&Hash/CSS added|
 |11/15/2023|  0.40		   | General Chat Running|
-|11/19/2023|  0.30		   | Can Create Private Chats|
-|11/26/2023|  0.30		   | Provate Chats fully Operational|
+|11/19/2023|  0.50		   | Can Create Private Chats|
+|11/26/2023|  0.60		   | Provite Chats fully Operational|
 
 ## Overview
 
@@ -113,6 +113,10 @@ In the code snippit below you can see how we made our user model. Our username i
         src= "code_snippets/user.js.png" />
 </p>
 
+### Room Model
+
+### Message Model
+
 ### Database Connection
 
 In the snippet below we can see our mongoose database connection made at the top of our index.js file. We did this so we could insure that we connected to the database before accessing any routes. We have our credentails for database connection blurred, but by filling in the correct link we can modify our database!
@@ -125,9 +129,11 @@ In the snippet below we can see our mongoose database connection made at the top
         src= "code_snippets/mongoose.png" />
 </p>
 
+### Socket.io Sever Initialization
+
 ### Routing
 
-In this example we can see how our routin is handled after database connection! We made a folder for each route of our page, but by using index we have made highway to all of them in one page, which allows us to use run our server using just index for multiple routes on one clean page. 
+In this example we can see how our routing is handled after database connection! We made a folder for each route of our page, but by using index we have made highway to all of them in one page, which allows us to use run our server using just index for multiple routes on one clean page. 
 
 <p align="center">
     <img  
@@ -198,6 +204,10 @@ Below we show off two whole features! First we show you how we handle deleting a
         src= "code_snippets/update.png" />
 </p>
 
+### Create Room
+
+### Add User to Room
+
 ### Private Messaging
 
 Our Private Messaging is shown below! This page is where you can send provate drect messages to other users! You may only send messages to a user that is signed in with an authenticated account, and has access to our protected pages!
@@ -211,7 +221,7 @@ Our Private Messaging is shown below! This page is where you can send provate dr
         src= "code_snippets/protectedpagejs.png" />
 </p>
 
-### General Messaging
+### General Messaging (For both registered and non-registered users)
 
 Our General Messaging is shown below! This page is where you can send group or general messages to other users all at once! Only a user that is signed in with an authenticated accountcan send messages!
 
@@ -388,15 +398,15 @@ Commits for Sprint 2.
 6. Created authentication barriers for messaging 
 7. Moved account delete from the update page to its own protected page
 8. Created a Global Messaging System for all authenticated users
-9. Created a "User is typing" feature
-10. Added more profile information to users
+9. Created a Global Messaging System for all unauthenticated users
+10. Display old messages in rooms
 
 #### Sprint 2 Contributions:
 
 1.  Jonathan Pieroni, x hours, contributed in x
 2.  Daniel Lambert,   10 hours, contributed in all diagrams for Sprint 2 updated README.md and UseCases.md and made outline for presentation.
 3. Joseph Johnson, x hours, contributed in x
-4.  Aaron McClellan,  x hours, contributed in x
+4.  Aaron McClellan,  34 hours, contributed in READ.ME, create_room.js, general_chat.js, home.js, private_chat.js, regGenChat.js, create_room.pug, general_chat.html, home.pug, private_chat.html, regGenChat.html, delete.pug, delete.js, Most css files, Git manager, trello board managing, index.js socket.io initialization.
 
 #### Sprint Retrospective
 
