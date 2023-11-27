@@ -206,6 +206,6 @@ async function userAccess(room, roomCode, user) {
     //console.log(`Server running on https://localhost:${port}`);
 //});
 
-//app.listen(port, () => {
-    //console.log(`Messanger app listening on port ${port}`);
-//});
+app.listen(port, () => {
+    console.log(`Messanger app listening on port ${port}`);
+});
