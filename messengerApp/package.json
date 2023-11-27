@@ -1,12 +1,13 @@
 {
   "name": "messengerapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js application for CPS 490 that demonstrates real time messaging",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
-  "author": "",
+  "author": "Aaron McClellan, Joseph Johnson, Jonathan Pieroni, Daniel Lambert",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -18,5 +19,19 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.1",
     "pug": "^3.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambertd4/Capstone1.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "Capstone"
+  ],
+  "bugs": {
+    "url": "https://github.com/lambertd4/Capstone1/issues"
+  },
+  "homepage": "https://github.com/lambertd4/Capstone1#readme"
 }
