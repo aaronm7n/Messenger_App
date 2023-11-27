@@ -54,7 +54,7 @@ Source code repository: <https://github.com/lambertd4/Capstone1>
 
 ## Overview
 
-We are at the end of our first sprint, adding many new features to our app! We made it so that we have users who can register for an account, login to their profile to access their own protected page, and edit their profile! Our main focus for this sprint was setting up our user database and giving user's some options for their profile. Users will be able to change their password and delete their account if they want to. In addition to this we made it so passwords were salted and hashed instead of stored plainly in our database. Also we worked on our route structure, making it much more clean and easy to tell which routes lead where. We also wanted to begin to think of design ideas for the future of our webapp! We agreed upon a color palate that we plan on implementing into all future pages via css routes. 
+We are at the end of our second sprint, we have added many new features to our app! We made it so that we unregistered users have access to an annonymous chat. As for our registered users they can create private chat rooms, give users access to these rooms, join the privat rooms, and join a general chat for registered users only. Our best feature by far this sprint is the ability to retore the 50 most recent messages for each chat room. Our main focus for this sprint was making chat rooms that allowed only certain users. This allowed us to have the option to do both private messaging and group messages at the same time. In addition we have started to implement design changes to make our website more appealing to the average user. Throughout this sprint we gained a much better understanding of socket.io and the client server relationship.
 
 
 ## System Analysis
