@@ -202,7 +202,7 @@ async function userAccess(room, roomCode, user) {
     }
 };
 
-httpServer.listen(3000, () => {
+httpServer.listen(port, () => {
     console.log(`Server running on https://localhost:${port}`);
 });
 
