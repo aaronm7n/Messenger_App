@@ -196,7 +196,7 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
+        width="650" 
         height="350"
         src= "https://i.imgur.com/yBAhS5O.png" />
 </p>
@@ -246,24 +246,24 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="300"
+        width="400" 
+        height="320"
         src= "https://i.imgur.com/b8BKEI6.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
-        height="350"
+        width="450" 
+        height="450"
         src= "https://i.imgur.com/BAkwKLJ.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="350"
+        width="700" 
+        height="250"
         src= "https://i.imgur.com/EVtTMtb.png" />
 </p>
 
@@ -272,24 +272,24 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="300"
+        width="400" 
+        height="320"
         src= "https://i.imgur.com/3Nq88qc.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
-        height="350"
+        width="450" 
+        height="450"
         src= "https://i.imgur.com/9amsjOk.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="350"
+        width="700" 
+        height="250"
         src= "https://i.imgur.com/PZ44Vej.png" />
 </p>
 
@@ -298,24 +298,24 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="300"
+        width="400" 
+        height="320"
         src= "https://i.imgur.com/x2klwze.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
-        height="350"
+        width="450" 
+        height="450"
         src= "https://i.imgur.com/uRuzEUE.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="350"
+        width="700" 
+        height="250"
         src= "https://i.imgur.com/72Bkoye.png" />
 </p>
 
@@ -324,23 +324,23 @@ Draw the overview use case diagram, and define brief use case description for ea
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="300"
+        width="400" 
+        height="320"
         src= "https://i.imgur.com/hNpZPDT.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="350" 
-        height="350"
+        width="450" 
+        height="450"
         src= "https://i.imgur.com/tBB4EUo.png" />
 </p>
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="550" 
-        height="350"
+        width="430" 
+        height="250"
         src= "https://i.imgur.com/U5uhcL4.png" />
 </p>
