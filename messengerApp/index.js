@@ -1,22 +1,17 @@
 // Module imports
 const express = require('express');
+const app = express();
 const Room = require('./models/room.js');
-const http = require('http');
-const { Server } = require("socket.io");
+const httpServer = require('http').createServer(app);
+const io  = require("socket.io")(httpServer, {
+    // ...
+});
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const Message = require('./models/message.js');
 
-
-const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-         // This feature will temporarily store all the events that (NOT YET FUNCTIONAL)
-         // are sent by the server and will try to restore the state of a client when it reconnects:
-    connectionStateRecovery: {}
-});
 const upload = multer();
 
 const port = process.env.PORT || 3000;
@@ -207,7 +202,7 @@ async function userAccess(room, roomCode, user) {
     }
 };
 
-server.listen(3000, () => {
+httpServer.listen(3000, () => {
     console.log(`Server running on https://localhost:${port}`);
 });
 

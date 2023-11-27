@@ -108,14 +108,18 @@ In the code snippit below you can see how we made our user model. Our username i
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="450" 
+        width="" 
         height="450"
         src= "code_snippets/user.js.png" />
 </p>
 
 ### Room Model
 
+In the code snippit below you can see how we made our room model. Our roomName is stored in a 16 bit String and our roomCode a 64 bit Strin. These two together make up the unique identifier for the room. This allows multiple people to have the same room name. An admin which is the user who creates the room. This allows us to make it so that only the admin can add users to the rooms access database, and an array of Strings that contains all of the users who have access to that room. This allows us to prevent unauthorized users access to the chat room.
+
 ### Message Model
+
+In the code snippit below you can see how we made our message model.
 
 ### Database Connection
 
@@ -206,11 +210,13 @@ Below we show off two whole features! First we show you how we handle deleting a
 
 ### Create Room
 
+Below is our routing that allows us to create our Private chat rooms! We first check to make sure that there is a registered user signed in, otherwise they should not have access. Once we recieve an form submission we check to see if the form was filed out correctly. If it was we save the parsed info into the room module and save it to the database.
+
 ### Add User to Room
 
 ### Private Messaging
 
-Our Private Messaging is shown below! This page is where you can send provate drect messages to other users! You may only send messages to a user that is signed in with an authenticated account, and has access to our protected pages!
+Our Private Messaging is shown below! This page is where you can send provate drect messages to other users! You may only send messages to a user that is signed in with an authenticated account, and has access to our protected pages! The way this works is we first connect to the socket and set up a const for most of the information inputs on the page. we then add event listeners to the forms. formA when subitted will set which room will have its messages loaded as well as test if the user has access. Once submitted the div is then hidden. Form b looks for what message the user is sending. When the socket recieves this message it adds the message to the page. We are also currently attempting to add a User is typing feature but it does not currently work.
 
 [comment]: <> (This is a placeholder image)
 <p align="center">
