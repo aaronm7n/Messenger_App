@@ -127,14 +127,14 @@ In the code snippit below you can see how we made our room model. Our roomName i
 
 ### Message Model
 
-In the code snippit below you can see how we made our message model.
+In the code snippit below you can see how we made our message model. As you can see we when a message is created we save the roomname of the room the message was sent so we know which room to display it in. In addition we save the actual contents of the message and the username of the one who wrote the message. This is all important not only for displaying the message in real time, but also for our display previous messages function. Our previous message function displays the most recent 50 messages sent in our chat rooms, however it has a secondary purpose. It also deletes all messages exceeding 50 for each room, keeping our database cleaner that it would be without the restriction. 
 
 <p align="center">
     <img  
         style="padding: 0px 0px 0px 20px" 
-        width="325" 
+        width="700" 
         height="350"
-        src= "code_snippets/message.js.png" />
+        src= "code_snippets/previousMessages.png" />
 </p>
 
 ### Database Connection
@@ -235,6 +235,16 @@ Below is our routing that allows us to create our Private chat rooms! We first c
 </p>
 
 ### Add User to Room
+Below we are going to show you how we add a user to a room! When you are adding someone to a room you input the roomName, roomCode, and userName of the user who you want to add to the room. By asking for the roomName and roomCode we identify the specefic room and allow you to have a level of security to adding to rooms. We check to see if the room exists first, and if so we find the room in our database and push the userName to that rooms specefic userList. In the future we want to make it so you also have to have the admin attribute of the room to add a user, and would also like to display the roomname and roomcode of the rooms you already joined on this page!
+
+<p align="center">
+    <img  
+        style="padding: 0px 0px 0px 20px" 
+        width="550" 
+        height="450"
+        src= "code_snippets/addtoroom.png" />
+</p>
+(apologies for the console log we were testing the post request)
 
 ### Private Messaging
 
@@ -430,7 +440,7 @@ Commits for Sprint 2.
 
 1.  Jonathan Pieroni, x hours, contributed in x
 2.  Daniel Lambert,   10 hours, contributed in all diagrams for Sprint 2 updated README.md and UseCases.md and made outline for presentation.
-3. Joseph Johnson, x hours, contributed in x
+3. Joseph Johnson, 28 hours, contributed in Message model, previousMessages function, General message css, Add to room/Create room css, Read.Me, index.js, socket global message formula, trello board, minor contributions in the following: general_chat.js, privat_chat.html, create_room.js, regGenChat.js, and others.
 4.  Aaron McClellan,  34 hours, contributed in READ.ME, create_room.js, general_chat.js, home.js, private_chat.js, regGenChat.js, create_room.pug, general_chat.html, home.pug, private_chat.html, regGenChat.html, delete.pug, delete.js, Most css files, Git manager, trello board managing, index.js socket.io initialization.
 
 #### Sprint Retrospective
@@ -463,3 +473,4 @@ Commits for Sprint 2.
 
 
 [Sprint1Demo](DemoSprint1.mp4)
+[Sprint2Demo](DemoSprint2.mp4)
