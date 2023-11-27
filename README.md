@@ -455,7 +455,7 @@ Commits for Sprint 2.
 
 | Good     |   Could have been better    |  How to improve?  |
 |----------|:---------------------------:|------------------:|
-| Very distinct goals for each member which allowed us to worl simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fixing issues |
+| Very distinct goals for each member which allowed us to work simultaneaously | Problems took very long to solve  | Asking the professor for help with problems and being more proactive about fixing issues |
 
 
 
