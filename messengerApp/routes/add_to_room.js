@@ -16,7 +16,7 @@ const checkSignIn = (req, res, next) => {
 
 // Add to room Room GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('add_to_room');
+    res.render('add_to_room.ejs');
 });
 
 router.use (function(req, res, next) {

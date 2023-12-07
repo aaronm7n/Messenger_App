@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/create_room.css">
+        <title>Add Someone to a Room!</title>
+    </head>
+    <body>
+        <div class="div-wrapper">
+            <form action="/add_to_room", method="POST">
+                <h1>Add Someone to a Room!</h1>
+                <div class="div-input">
+                    <input class="newUserName" name="newUserName" autocomplete="off" type="text" required placeholder="New User">
+                </div>
+                <div class="div-input">
+                    <input class="roomName" name="roomName" autocomplete="off" type="text" required placeholder="Room Name">
+                </div>
+                <div class="div-input">
+                    <input class="roomCode" name="roomCode" autocomplete="off" type="password" required placeholder="Room Code">
+                </div>
+                <button type="submit">Join Room</button>
+            </form>
+        </div>
+    </body>
+</html>
