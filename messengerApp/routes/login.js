@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 // Login GET Request
 router.get('/', (req, res) => {
-    res.render('login');
+    res.render('login.pug');
 });
 
 // Login POST Request
@@ -23,7 +23,7 @@ router.post('/', async (req,res) => {
     // finds user in database
     
     if(!user){
-        return res.render('login', { message: "Hey you arent a user! Sign Up!"})
+        return res.render('login.pug', { message: "Hey you arent a user! Sign Up!"})
     }
 
     if( await bcrypt.compareSync(password,user.password )){
