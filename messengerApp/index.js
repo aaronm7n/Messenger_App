@@ -38,6 +38,7 @@ db.once("open", () => {
 
 // View setup
 app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.use('/css', express.static('css'));
@@ -47,7 +48,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 app.use(cookieParser());
-app.use(session({secret: "Apple"}));
+const sessionMiddleware = session({
+    secret: "changeit",
+    resave: true,
+    saveUninitialized: true,
+});
+
+app.use(sessionMiddleware);
 
 
 // Routing setup
@@ -67,10 +74,10 @@ const update = require('./routes/update.js');
 app.use('/update', update);
 const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
-const genChat = require('./routes/general_chat.js');
-app.use('/general_chat', genChat);
 const createRoom = require('./routes/create_room.js');
 app.use('/create_room', createRoom);
+const genChat = require('./routes/general_chat.js');
+app.use('/general_chat', genChat);
 const prvChat = require('./routes/private_chat.js');
 app.use('/private_chat', prvChat);
 const regGenChat = require('./routes/regGenChat.js');
@@ -82,7 +89,7 @@ app.get('*', (req, res) => {
 });
 
 io.on('connection', async (socket) => { 
-    console.log('user connected');
+    console.log('User connected');
 
     socket.on('disconnect', () => {
         console.log('a user disconnected')
