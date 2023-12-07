@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/css/private_chat.css" />
+        <link rel="stylesheet" type="text/css" href="/css/regGenChat.css" />
         <title>Private chat</title>
         <style>
             .hidden {
@@ -12,47 +12,36 @@
     <body>
         <div id="bigDiv" class="div-wrapper">
             <form id="formA" action="">
-                <div class="div-roomName">
-                    <input id="roomName" autocomplete="off" name="roomName" type="text" required placeholder="Room Name"/>
-                </div>
-                <div class="div-roomCode">
-                    <input id="roomCode" autocomplete="off" name="roomCode" type="password" required placeholder="Room Code"/>
-                </div>
+                <h1 class="header">Enter Your Name</h1>
                 <div class="div-userName">
                     <input id="userName" autocomplete="off" name="User Name" type="text" required placeholder="Username"/>
                 </div>
-                <div class="button-wrapper">
-                    <button class="joinRoom" type="submit">Join Room</button>
-                </div>
+                <button class="nameSubmit" type="submit">Enter</button>
             </form> 
         </div>
         <em id="typing"></em>
         <ul id="messages"></ul>
         <form id="form" action="">
-            <input id="input" autocomplete="off" /><a class="home" href="/protected_page.js">Profile</a><button>Send</button>
+            <input id="input" autocomplete="off" /><a class="protected_page" href="/protected_page.js">Profile</a><button>Send</button>
         </form>
         <script src="/socket.io/socket.io.js"></script>
         <script>
-        const socket = io({
-            withCredentials: true
-        });
+        const socket = io();
         const typying = false;
         const timeout = undefined;
         
         const typing = document.getElementById('typing')
         const messages = document.getElementById('messages');
-        const formA = document.getElementById('formA');
         const bigDiv = document.getElementById('bigDiv');
+        const formA = document.getElementById('formA');
         const input = document.getElementById('input');
         const formB = document.getElementById('form');
-        const roomName = document.getElementById('roomName');
-        const roomCode = document.getElementById('roomCode');
         const userName = document.getElementById('userName');
 
         formA.addEventListener('submit', function(e) {
             e.preventDefault();
-            if (roomName.value) {
-                socket.emit('joinRoom', roomName.value, roomCode.value, userName.value);
+            if (userName.value) {
+                socket.emit('joinRoom', 'regGenChat', '',  userName.value);
                 formA.classList.add('hidden');
                 bigDiv.classList.add('hidden');
             }
@@ -75,7 +64,6 @@
         
         socket.on('chat message', function(msg) {
             var item = document.createElement('li');
-            socket.userName = userName.value;
             item.textContent = msg;
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
