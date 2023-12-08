@@ -14,7 +14,7 @@ const checkSignIn = (req, res, next) => {
 
 router.get('/', checkSignIn, (req, res) => {
     const username = req.session.user.username; // Get the username from the session for message
-    res.render('protected_page', {id: username})
+    res.render('protected_page.pug', {id: username})
 });
 
 router.use('/', (err, req, res, next) => {
