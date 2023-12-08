@@ -21,7 +21,7 @@ const port = process.env.PORT || 3000;
 const username = "admin"
 const password = "5Vb5EswuNxFZgD6h"
 const cluster = "messengerdb.rsgrfzu";
-const dbname = ""; // defaults to "test" if left blank
+const dbname = "team07-messenger"; // defaults to "test" if left blank
 
 const uri = `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 

@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
 
 // Login POST Request
 router.post('/', async (req,res) => {
-    const { id, password } = req.body// cleans up comparing id and password
+    const { username, password } = req.body// cleans up comparing username and password
 
-    if(!id || !password){
+    if(!username || !password){
         res.render('login', {message: "Please enter both id and password"});
         return;
     }
 
-    const user = await User.findOne({ username: id});
+    const user = await User.findOne({ username: username});
     // cant believe this worked but ok 
     // finds user in database
     
@@ -28,6 +28,13 @@ router.post('/', async (req,res) => {
 
     if( await bcrypt.compareSync(password,user.password )){
         req.session.user = user;
+        const id = user._id;
+        const hashed = user.password;
+        await User.findOneAndUpdate(
+            { _id: id},
+            { online: true },
+            { new: true }
+        );
         return res.redirect('/protected_page')
     }
     else{

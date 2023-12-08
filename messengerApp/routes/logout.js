@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
+const bcrypt = require('bcrypt');
+
 
 const checkSignIn = (req, res, next) => {
     if(req.session.user){
@@ -13,8 +16,15 @@ const checkSignIn = (req, res, next) => {
 };
 
 // Logout GET Request and Redirection to Login
-router.get('/', checkSignIn, (req, res) => {
+router.get('/', checkSignIn, async (req, res) => {
     let username = req.session.user.username;
+    const id = req.session.user._id;
+    await User.findOneAndUpdate(
+        
+        { _id: id},
+        { online: false },
+        { new: true }
+    );
     req.session.destroy( () => {
         console.log(`${username} logged out.`)
     });
