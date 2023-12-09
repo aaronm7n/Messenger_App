@@ -8,7 +8,25 @@ body {
     border-radius: 5px;
     width: 350px;
     height: 510px;
-    margin: auto;
+    margin: 80px auto 20px;;
+    
+}
+
+.topbar {
+    background-color: #40124C;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+  
+.topbar a {
+    float: right;
+    color: #f2f2f2;
+    text-align: right;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 .title-wrapper{
@@ -21,7 +39,7 @@ body {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
     text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
     color: white;
     font-family: courier;
