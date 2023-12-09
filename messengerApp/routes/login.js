@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 // Login GET Request
 router.get('/', (req, res) => {
-    res.render('login.pug');
+    res.render('login.ejs', {message: ""});
 });
 
 // Login POST Request
@@ -14,7 +14,7 @@ router.post('/', async (req,res) => {
     const { id, password } = req.body// cleans up comparing id and password
 
     if(!id || !password){
-        res.render('login', {message: "Please enter both id and password"});
+        res.render('login.ejs', {message: "Please enter both id and password"});
         return;
     }
 
@@ -23,7 +23,7 @@ router.post('/', async (req,res) => {
     // finds user in database
     
     if(!user){
-        return res.render('login.pug', { message: "Hey you arent a user! Sign Up!"})
+        return res.render('login.ejs', { message: "Hey you arent a user! Sign Up!"})
     }
 
     if( await bcrypt.compareSync(password,user.password )){
@@ -31,7 +31,7 @@ router.post('/', async (req,res) => {
         return res.redirect('/protected_page')
     }
     else{
-        return res.render('login', { message: "Uh oh! Invalid Credentials!"})
+        return res.render('login.ejs', { message: "Uh oh! Invalid Credentials!"})
     }
 });
 

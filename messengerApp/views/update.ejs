@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update</title>
+        <link rel="stylesheet" type="text/css" href="/css/update.css">
+    </head>
+    <body>
+        <div class="div-wrapper">
+            <br>
+            <% if (message) %>
+                <h4><%= message %></h4>
+            <form action="/update" method="POST">
+                <div class="div-wrapper4">
+                    <h3>Change your password:</h3>
+                </div>
+                <br>
+                <div class="div-wrapper2">
+                    <input class='newPassword' id="newPassword" autocomplete="off" name="newPassword" type="password" required placeholder="New Password"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

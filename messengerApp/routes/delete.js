@@ -28,10 +28,10 @@ router.post('/', async (req, res) => {
     if(await bcrypt.compareSync(Delete,user.password )){
         var ack,count = await User.deleteOne({"username": username})
         if(ack==true&& count ==1){
-            res.render('profiledeleted', {message: "Success!"})
+            res.render('profiledeleted.ejs', {message: "Success!"})
         }
         else 
-            res.render('profiledeleted', {message: "There was an error deleting your prfile.", Type: "error"})
+            res.render('profiledeleted.ejs', {message: "There was an error deleting your prfile.", Type: "error"})
 
     }
     else{
