@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 
 const checkSignIn = (req, res, next) => {
     if(req.session.user){
-        
         return next(); //If session exists, proceed to page
     } else {
         const err = new Error("Not logged in!");
@@ -16,15 +15,10 @@ const checkSignIn = (req, res, next) => {
 
 // Update GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('delete');
+    res.render('delete.ejs', {message: ""});
     
 });
 
-// This allows us to know which user is currently logged in so we know what data to change
-router.use (function(req, res, next) {
-    res.locals.currentUser = req.session.user.username;
-    next();
-});
 
 router.post('/', async (req, res) => {
     const { id, password, Delete } = req.body // Makes comparing id and passwords easier
@@ -41,7 +35,7 @@ router.post('/', async (req, res) => {
 
     }
     else{
-        res.render('delete', {message: "Please enter password to delete profile"})
+        res.render('delete.ejs', {message: "Please enter password to delete profile"})
     }
 });
 
