@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup</title>
+        <link rel="stylesheet" href="/css/create_room.css">
+    </head>
+    <body>
+        <% if (message) %>
+            <h4><%= message %></h4>
+        <form action="/create_room", method="POST">
+            <div class="div-wrapper">
+                <h1>Create a Private Chat Room:</h1>
+                <input class="roomName" name="roomName" autocomplete="off" type="text" required placeholder="Room Name">
+                <br>
+                <input class="roomCode" name="roomCode" autocomplete="off" type="password" required placeholder="Room Code">
+                <br>
+                <button type="submit">Create Room</button>
+            </div>
+        </form>
+    </body>
+</html>
