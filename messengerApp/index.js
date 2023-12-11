@@ -76,8 +76,6 @@ const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
 const createRoom = require('./routes/create_room.js');
 app.use('/create_room', createRoom);
-const genChat = require('./routes/general_chat.js');
-app.use('/general_chat', genChat);
 const prvChat = require('./routes/private_chat.js');
 app.use('/private_chat', prvChat);
 const regGenChat = require('./routes/regGenChat.js');
