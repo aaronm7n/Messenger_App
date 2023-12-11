@@ -10,6 +10,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 64
+    },
+    online: {
+        type: Boolean,
+        required: true
     }
 })
 
