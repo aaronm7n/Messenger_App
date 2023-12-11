@@ -37,6 +37,7 @@
             </form>
         </div>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
         const socket = io({
             withCredentials: true
@@ -90,22 +91,28 @@
 
         socket.on('online', function(data) {
             var item = document.createElement('li');
+            item.id = data;
             item.textContent = data;
             online.appendChild(item);
         });
 
         socket.on('offline', function(data) {;
+            const item = document.getElementById(data);
+            if (item.parentNode) {
+                item.parentNode.removeChild(item);
+            }
             // online.querySelectorAll('li').forEach(function(item) {
-            //     if (item.textContent == userName) {
-            //         item.remove();
+            //     if (item.id == userName) {
+            //         //item.classList.add('hidden');
+            //         $(`#${userName}`).remove();
             //     }
             // });
-            var items = online.getElementsByTagName("li");
-            for(var i = items.length - 1; i >= 0; i--) {
-                if (items[i].textContent == userName) {
-                    items[i].remove();
-                }
-            }
+            // var items = online.getElementsByTagName("li");
+            // for(var i = items.length - 1; i >= 0; i--) {
+            //     if (items[i].textContent === userName) {
+            //         items[i].remove();
+            //     }
+            // }
         });
 
         socket.on('disconnect', function() {
