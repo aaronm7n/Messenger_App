@@ -1,6 +1,7 @@
 // Module imports
 const express = require('express');
 const app = express();
+const emoji = require('node-emoji');
 const Room = require('./models/room.js');
 const httpServer = require('http').createServer(app);
 const io  = require("socket.io")(httpServer, {
@@ -153,7 +154,8 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
+        emojimsg = emoji.emojify(msg);
+        console.log('message: ' + emojimsg);
     });
 
     socket.on('online', (data) => {
@@ -166,9 +168,11 @@ io.on('connection', async (socket) => {
 
     socket.on('chat message', (msg) => {
         console.log(socket.room);
+        emojimsg = emoji.emojify(msg);
+
         if(socket.room != 'generalChat'){
             var newMessage = new Message({
-                message: msg,
+                message: emojimsg,
                 roomname: socket.room,
                 username: socket.username
             }); 
@@ -177,7 +181,7 @@ io.on('connection', async (socket) => {
         }
         else {
             var newMessage = new Message({
-                message: msg,
+                message: emojimsg,
                 roomname: socket.room,
                 username: socket.username
             }); 
