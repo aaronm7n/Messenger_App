@@ -21,7 +21,7 @@ const port = process.env.PORT || 3000;
 const username = "admin"
 const password = "5Vb5EswuNxFZgD6h"
 const cluster = "messengerdb.rsgrfzu";
-const dbname = "team07-messenger"; // defaults to "test" if left blank
+const dbname = ""; // defaults to "test" if left blank
 
 const uri = `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
@@ -76,8 +76,6 @@ const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
 const createRoom = require('./routes/create_room.js');
 app.use('/create_room', createRoom);
-const genChat = require('./routes/general_chat.js');
-app.use('/general_chat', genChat);
 const prvChat = require('./routes/private_chat.js');
 app.use('/private_chat', prvChat);
 const regGenChat = require('./routes/regGenChat.js');
