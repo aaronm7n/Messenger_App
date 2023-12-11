@@ -25,6 +25,10 @@
                 </div>
             </form> 
         </div>
+        <div class="userSidebar">
+            <p style='color: white'> Users: </p>
+            <ul id="online"></ul>
+        </div>
         <div id="messageDiv" class="messageWrapper">
             <em id="typing"></em>
             <ul id="messages"></ul>
@@ -33,6 +37,7 @@
             </form>
         </div>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
         const socket = io({
             withCredentials: true
@@ -40,7 +45,8 @@
         const typying = false;
         const timeout = undefined;
         
-        const typing = document.getElementById('typing')
+        const online = document.getElementById('online');
+        const typing = document.getElementById('typing');
         const messages = document.getElementById('messages');
         const formA = document.getElementById('formA');
         const bigDiv = document.getElementById('sidebar');
@@ -53,8 +59,8 @@
         formA.addEventListener('submit', function(e) {
             e.preventDefault();
             if (roomName.value) {
-                console.log(userName);
                 socket.emit('joinRoom', roomName.value, roomCode.value, userName);
+                socket.emit('online', userName);
                 //formA.classList.add('hidden');
                 //bigDiv.classList.add('hidden');
             }
@@ -81,6 +87,36 @@
             item.textContent = msg;
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        socket.on('online', function(data) {
+            var item = document.createElement('li');
+            item.id = data;
+            item.textContent = data;
+            online.appendChild(item);
+        });
+
+        socket.on('offline', function(data) {;
+            const item = document.getElementById(data);
+            if (item.parentNode) {
+                item.parentNode.removeChild(item);
+            }
+            // online.querySelectorAll('li').forEach(function(item) {
+            //     if (item.id == userName) {
+            //         //item.classList.add('hidden');
+            //         $(`#${userName}`).remove();
+            //     }
+            // });
+            // var items = online.getElementsByTagName("li");
+            // for(var i = items.length - 1; i >= 0; i--) {
+            //     if (items[i].textContent === userName) {
+            //         items[i].remove();
+            //     }
+            // }
+        });
+
+        socket.on('disconnect', function() {
+            socket.emit('offline', userName);
         });
 
         // unfinished

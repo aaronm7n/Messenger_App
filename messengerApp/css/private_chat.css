@@ -12,7 +12,25 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    padding-top: 100px;
+}
+
+.userSidebar {
+    position: fixed;
+    background-color: #1f0f66;
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#online {
+    color: white;
+    font-family: courier;
+    font-weight: bold;
+}
+#online > li {
+    padding: 0.5rem 1rem;
 }
 
 
@@ -101,6 +119,7 @@ body {
 #messages {
     list-style-type: none;
     margin-left: 200px;
+    margin-right:200px;
     color: white;
     font-family: courier;
     font-weight: bold;

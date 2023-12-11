@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
 router.post('/', async (req,res) => {
     const { username, password } = req.body// cleans up comparing username and password
     if(!username || !password){
+        console.log(username)
+        console.log(password)
         res.render('login', {message: "Please enter both id and password"});
         return;
     }

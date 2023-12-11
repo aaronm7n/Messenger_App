@@ -111,7 +111,7 @@ router.post('/', async (req, res) => {
             type: "error"
         });
     }
-    else if (passwordStrength <=2){
+    else if (passwordStrength < 2){
         res.render('signup_results.ejs', {
             message: "Sorry, your password is not strong enough. It must contain 2 of the following: an uppercase character, a number, a special character, or be longer than 10 characters.",
             type: "error"
@@ -121,7 +121,8 @@ router.post('/', async (req, res) => {
         var hashed = await bcrypt.hashSync(userInfo.password, salt);
         var newUser = new User({
             username: userInfo.username,
-            password: hashed
+            password: hashed,
+            online: false
         });
 
         // This prevents ant duplicate usernames
