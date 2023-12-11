@@ -94,11 +94,13 @@ io.on('connection', async (socket) => {
     socket.on('disconnect', () => {
         console.log('a user disconnected')
         if (socket.room != 'generalChat') {
+            io.to(socket.room).emit('offline', `${socket.username}`);
             io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
             socket.leave(socket.room)
         }
         else {
             io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now offline!`);
+            
             socket.leave(socket.room)
         }
     });
@@ -118,6 +120,7 @@ io.on('connection', async (socket) => {
                     socket.room = room;
                     socket.username = user;
                     io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
+                    io.to(socket.room).emit('online', `${socket.username}`);
                     previousMessages(socket, `${room}`);//display previous messages in room
                 }
         
@@ -153,6 +156,14 @@ io.on('connection', async (socket) => {
 
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
+    });
+
+    socket.on('online', (data) => {
+        console.log(data);
+    });
+
+    socket.on('offline', (data) => {
+        console.log(data);
     });
 
     socket.on('chat message', (msg) => {
