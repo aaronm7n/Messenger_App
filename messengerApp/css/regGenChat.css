@@ -1,23 +1,36 @@
 body {
     margin: 0;
     padding-bottom: 3rem;
-    background-color: #40124C;
+    background-color: #242526;
     font-family: courier;
 }
 .div-wrapper {
+    position: fixed;
     background-color: #1f0f66;
-    height: 100px;
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 100px;
 }
 .header,
 .div-userName,
 .button-wrapper {
-    display: inline-block;
-    margin: auto;
-    padding-left: 20px;
-    color: white;
-    font-family: courier;
-    font-size: 18px;
-    text-shadow: -1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+    padding: 6px 12px;
+    background: #40124C;
+    border: 1px solid #242526;
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgb(247, 248, 248);
+    height: 30px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
 }
 .nameSubmit{
     display: inline-block;
@@ -26,9 +39,7 @@ body {
     background-color: #880085;
     color: white;
     border-radius: 5px;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     height: 40px;
     width: 200px;
     font-family: courier;
@@ -41,15 +52,16 @@ body {
     padding: 0.25rem;
     position: fixed;
     bottom: -15;
-    left: 0;
     background-color: #1f0f66;
     right: 0;
+    left: 200px;
     font-family: courier;
     display: flex;
-    height: 3rem;
+    height: 4rem;
     box-sizing: border-box;
     backdrop-filter: blur(10px);
 }
+
 #input {
     border: none;
     padding: 0 1rem;
@@ -75,9 +87,10 @@ body {
 }
 #messages {
     list-style-type: none;
-    margin: 0;
+    margin-left: 200px;
     color: white;
     font-family: courier;
+    font-weight: bold;
     padding: 0;
 }
 #messages > li {

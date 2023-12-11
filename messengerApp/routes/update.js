@@ -18,7 +18,7 @@ const checkSignIn = (req, res, next) => {
 
 // Update GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('update');
+    res.render('update.ejs', {message: ""});
     
 });
 
@@ -30,20 +30,11 @@ router.use (function(req, res, next) {
 
 // Update POST Request
 router.post('/', async (req, res) => {
-    const { id, password, Delete } = req.body // Makes comparing id and passwords easier
+    const { id, password} = req.body // Makes comparing id and passwords easier
     const username = req.session.user.username;
-    const user = await User.findOne({ "username": username});
 
-    if(await bcrypt.compareSync(Delete,user.password )){
-        var ack,count = await User.deleteOne({"username": username})
-        if(ack==true&& count ==1){
-            res.render('profiledeleted', {message: "Success!"})
-        }
-        else 
-            res.render('profiledeleted', {message: "There was an error deleting your prfile.", Type: "error"})
-    }
-    else if(!password){
-        res.render('update', {message: "Please enter some information to update your profile"})
+    if(!password){
+        res.render('update.ejs', {message: "Please enter some information to update your profile"})
     }
     else{
         if(password){
@@ -53,7 +44,7 @@ router.post('/', async (req, res) => {
                 { password: hashed },
                 { new: true }
             );
-            res.render('update', {
+            res.render('update.ejs', {
                 message: "You have succefully updated your password",
             });
         }

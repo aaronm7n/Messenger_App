@@ -10,28 +10,28 @@
         </style>
     </head>
     <body>
-        <div id="bigDiv" class="div-wrapper">
-            <p style='color: white'> Welcome <%= uname %> </p>
+        <div id="sidebar" class="sidebar">
+            <p style='color: white'> Current User: </p>
+            <p id='userName' style='color: white'><%= uname %></p>
             <form id="formA" action="">
                 <div class="div-roomName">
-                    <input id="roomName" autocomplete="off" name="roomName" type="text" required placeholder="Room Name"/>
+                    <input class='roomInput' id="roomName" autocomplete="off" name="roomName" type="text" required placeholder="Room Name"/>
                 </div>
                 <div class="div-roomCode">
-                    <input id="roomCode" autocomplete="off" name="roomCode" type="password" required placeholder="Room Code"/>
-                </div>
-                <div class="div-userName">
-                    <input id="userName" autocomplete="off" name="User Name" type="text" required placeholder="Username"/>
+                    <input class='codeInput' id="roomCode" autocomplete="off" name="roomCode" type="password" required placeholder="Room Code"/>
                 </div>
                 <div class="button-wrapper">
                     <button class="joinRoom" type="submit">Join Room</button>
                 </div>
             </form> 
         </div>
-        <em id="typing"></em>
-        <ul id="messages"></ul>
-        <form id="form" action="">
-            <input id="input" autocomplete="off" /><a class="home" href="/protected_page.js">Profile</a><button>Send</button>
-        </form>
+        <div id="messageDiv" class="messageWrapper">
+            <em id="typing"></em>
+            <ul id="messages"></ul>
+            <form id="form" action="">
+                <input id="input" autocomplete="off" /><a class="home" href="/protected_page.js">Profile</a><button>Send</button>
+            </form>
+        </div>
         <script src="/socket.io/socket.io.js"></script>
         <script>
         const socket = io({
@@ -43,19 +43,20 @@
         const typing = document.getElementById('typing')
         const messages = document.getElementById('messages');
         const formA = document.getElementById('formA');
-        const bigDiv = document.getElementById('bigDiv');
+        const bigDiv = document.getElementById('sidebar');
         const input = document.getElementById('input');
         const formB = document.getElementById('form');
         const roomName = document.getElementById('roomName');
         const roomCode = document.getElementById('roomCode');
-        const userName = document.getElementById('userName');
+        const userName = document.getElementById('userName').textContent;
 
         formA.addEventListener('submit', function(e) {
             e.preventDefault();
             if (roomName.value) {
-                socket.emit('joinRoom', roomName.value, roomCode.value, userName.value);
-                formA.classList.add('hidden');
-                bigDiv.classList.add('hidden');
+                console.log(userName);
+                socket.emit('joinRoom', roomName.value, roomCode.value, userName);
+                //formA.classList.add('hidden');
+                //bigDiv.classList.add('hidden');
             }
         });
         

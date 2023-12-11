@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete Profile</title>
+        <link rel="stylesheet" type="text/css" href="/css/delete.css" />
+    </head>
+    <body>
+        <% if (message) %>
+            <h4><%= message %></h4>
+        <div class="div-wrapper3">
+            <form action="/delete" method="POST">
+                <h2>If you want to delete your profile, please enter your password in the textbox below:</h2>
+                <h1>WARNING!!! This CANNOT be undone</h1>
+                <br>
+                <div class="div-deleteProfile">
+                    <label for="password">Delete Profile:</label>
+                    <input class="password" name="password" autocomplete="off" type="password" required placeholder="Password">
+                </div>
+                <br>
+                <div class="div-wrapper2">
+                    <button type="submit">Delete</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

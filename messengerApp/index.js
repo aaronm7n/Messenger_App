@@ -85,7 +85,7 @@ app.use('/regGenChat', regGenChat);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
-    res.render('home');
+    res.render('home.ejs');
 });
 
 io.on('connection', async (socket) => { 
