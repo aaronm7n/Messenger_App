@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup Results</title>
+        <link rel="stylesheet" type="text/css" href="/css/signup_results.css">
+    </head>
+    <body>
+        <div class="div-wrapper">
+            <br>
+            <% if (type == "error") { %>
+                <div class="div-wrapper2">
+                    <h2 style="color: red"><%= message %></h2>
+                </div>
+                <br>
+                <a href="/signup">Go Back?</a>
+            <% } else { %>
+                <h2>New User, <%= user %> has been created!</h2>
+                <a href="/login">Login</a>
+            <% } %>
+        </div>
+    </body>
+</html>

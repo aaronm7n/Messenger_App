@@ -1,6 +1,7 @@
 // Module imports
 const express = require('express');
 const app = express();
+const emoji = require('node-emoji');
 const Room = require('./models/room.js');
 const httpServer = require('http').createServer(app);
 const io  = require("socket.io")(httpServer, {
@@ -38,6 +39,7 @@ db.once("open", () => {
 
 // View setup
 app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.use('/css', express.static('css'));
@@ -47,7 +49,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 app.use(cookieParser());
-app.use(session({secret: "Apple"}));
+const sessionMiddleware = session({
+    secret: "changeit",
+    resave: true,
+    saveUninitialized: true,
+});
+
+app.use(sessionMiddleware);
 
 
 // Routing setup
@@ -67,8 +75,6 @@ const update = require('./routes/update.js');
 app.use('/update', update);
 const deletetion = require('./routes/delete.js');
 app.use('/delete', deletetion);
-const genChat = require('./routes/general_chat.js');
-app.use('/general_chat', genChat);
 const createRoom = require('./routes/create_room.js');
 app.use('/create_room', createRoom);
 const prvChat = require('./routes/private_chat.js');
@@ -78,30 +84,33 @@ app.use('/regGenChat', regGenChat);
 
 // Error 404 (OTHER ROUTES MUST COME BEFORE THIS)
 app.get('*', (req, res) => {
-    res.render('home');
+    res.render('home.ejs');
 });
 
 io.on('connection', async (socket) => { 
-    console.log('user connected');
+    console.log('User connected');
 
     socket.on('disconnect', () => {
         console.log('a user disconnected')
         if (socket.room != 'generalChat') {
+            io.to(socket.room).emit('offline', `${socket.username}`);
             io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+            userOffline(socket.room, socket.roomCode, socket.username);
             socket.leave(socket.room)
         }
         else {
             io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now offline!`);
+            
             socket.leave(socket.room)
         }
     });
 
     socket.on('joinRoom', async (room, roomCode, user) => {
-        const access = await (userAccess(room, roomCode, user));
-        console.log(access);
         socket.username = 'Annonymous'
         if (room != 'generalChat') {
             if (room != 'regGenChat') {
+                const access = await (userAccess(room, roomCode, user));
+                console.log(access);
                 if (access === true) {
                     console.log(`${socket.id} just joined the room ${room}`);
                     if (socket.room) {
@@ -109,8 +118,12 @@ io.on('connection', async (socket) => {
                     }
                     socket.join(room);
                     socket.room = room;
+                    socket.roomCode = roomCode;
                     socket.username = user;
                     io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
+                    userOnline(room, roomCode, user);
+                    onlineUsers(socket, room, roomCode);
+                    io.to(socket.room).emit('online', `${socket.username}`);
                     previousMessages(socket, `${room}`);//display previous messages in room
                 }
         
@@ -145,14 +158,25 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
+        emojimsg = emoji.emojify(msg);
+        console.log('message: ' + emojimsg);
+    });
+
+    socket.on('online', (data) => {
+        console.log(data);
+    });
+
+    socket.on('offline', (data) => {
+        console.log(data);
     });
 
     socket.on('chat message', (msg) => {
         console.log(socket.room);
+        emojimsg = emoji.emojify(msg);
+
         if(socket.room != 'generalChat'){
             var newMessage = new Message({
-                message: msg,
+                message: emojimsg,
                 roomname: socket.room,
                 username: socket.username
             }); 
@@ -161,7 +185,7 @@ io.on('connection', async (socket) => {
         }
         else {
             var newMessage = new Message({
-                message: msg,
+                message: emojimsg,
                 roomname: socket.room,
                 username: socket.username
             }); 
@@ -193,6 +217,32 @@ async function previousMessages(socket, room) {
         socket.emit('chat message', message.username + ": " + message.message)//displays message text
     })
 };
+
+async function onlineUsers(socket, room, roomCode) {
+    const currentRoom = await Room.findOne({ roomName: room, roomCode: roomCode }); //finds the room the user is currently in
+    //const currentUsers = currentRoom.onlineUserList;
+    currentRoom.onlineUserList.forEach(element => {
+        socket.emit('online', element);        
+    })
+}
+
+async function userOnline(room, roomCode, user){
+    const updatedRoom = await Room.findOneAndUpdate(
+        { "roomName": room, "roomCode": roomCode },
+        { $push: { onlineUserList: user } },
+        { new: true } // To return the updated document
+    );
+    await updatedRoom.save();
+}
+
+async function userOffline(room, roomCode, user){
+    const updatedRoom = await Room.findOneAndUpdate(
+        { "roomName": room, "roomCode": roomCode },
+        { $pull: { onlineUserList: user } },
+        { new: true } // To return the updated document
+    );
+    await updatedRoom.save();
+}
 
 async function userAccess(room, roomCode, user) {
     const userAccess = await Room.findOne({ roomName: room, roomCode, roomCode});

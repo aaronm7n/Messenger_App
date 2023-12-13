@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profile Deleted</title>
+        <link rel="stylesheet" type="text/css" href="/css/profiledeleted.css">
+    </head>
+    <body>
+        <div class="div-wrapper">
+            <% if (Type == "error") { %>
+                <div class="div-wrapper2">
+                    <h3 style="color: red"><%= message %></h3>
+                </div>
+            <% } else { %>
+                <div class="div-wrapper2">
+                    <h3>Profile has been deelted</h3>
+                </div>
+                <a href="/login">Login</a>
+            <% } %>
+        </div>
+    </body>
+</html>

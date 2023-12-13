@@ -15,7 +15,7 @@ const checkSignIn = (req, res, next) => {
 
 // Create Room GET Request
 router.get('/', checkSignIn, (req, res) => {
-    res.render('create_room');
+    res.render('create_room.ejs', {message: ""});
 });
 
 // This allows us to know which user is currently logged in so we know what data to change
@@ -29,19 +29,20 @@ router.post('/', async (req, res) => {
     var roomInfo = await req.body; // Get the parsed information
     const username = req.session.user.username;
     if(!roomInfo.roomName || !roomInfo.roomCode) {
-        res.render('create_room', {message: "Please enter some information to create your chat room"})
+        res.render('create_room.ejs', {message: "Please enter some information to create your chat room"})
     }
     else {
         var newRoom = new Room({
             roomName: roomInfo.roomName,
             roomCode: roomInfo.roomCode,
             admin: username,
-            userList: [] + [username]
+            userList: [] + [username],
+            onlineUserList: [],
         });
 
         newRoom.save();
 
-        res.render('create_room', {message: "Room Created Succesfully!"})
+        res.render('create_room.ejs', {message: "Room Created Succesfully!"})
     }
 })
 
