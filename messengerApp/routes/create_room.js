@@ -36,7 +36,8 @@ router.post('/', async (req, res) => {
             roomName: roomInfo.roomName,
             roomCode: roomInfo.roomCode,
             admin: username,
-            userList: [] + [username]
+            userList: [] + [username],
+            onlineUserList: [],
         });
 
         newRoom.save();

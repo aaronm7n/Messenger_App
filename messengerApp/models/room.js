@@ -19,6 +19,10 @@ const RoomSchema = new mongoose.Schema({
     userList: {
         type: [String],
         required: true,
+    },
+    onlineUserList: {
+        type: [String],
+        required: true
     }
 });
 
