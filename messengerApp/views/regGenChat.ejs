@@ -10,14 +10,9 @@
         </style>
     </head>
     <body>
-        <div id="bigDiv" class="div-wrapper">
-            <form id="formA" action="">
-                <h1 class="header">Enter Your Name</h1>
-                <div class="div-userName">
-                    <input id="userName" autocomplete="off" name="User Name" type="text" required placeholder="Username"/>
-                </div>
-                <button class="nameSubmit" type="submit">Enter</button>
-            </form> 
+        <div id="sidebar" class="sidebar">
+            <p style='color: white'> Current User: </p>
+            <p id='userName' style='color: white'><%= uname %></p>
         </div>
         <em id="typing"></em>
         <ul id="messages"></ul>
@@ -32,22 +27,14 @@
         
         const typing = document.getElementById('typing')
         const messages = document.getElementById('messages');
-        const bigDiv = document.getElementById('bigDiv');
-        const formA = document.getElementById('formA');
         const input = document.getElementById('input');
-        const formB = document.getElementById('form');
+        const form = document.getElementById('form');
         const userName = document.getElementById('userName');
 
-        formA.addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (userName.value) {
-                socket.emit('joinRoom', 'regGenChat', '',  userName.value);
-                formA.classList.add('hidden');
-                bigDiv.classList.add('hidden');
-            }
-        });
+        socket.emit('joinRoom', 'regGenChat');
+        socket.username = userName.textContent;
         
-        formB.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             if (input.value) {
                 socket.emit('chat message', input.value);

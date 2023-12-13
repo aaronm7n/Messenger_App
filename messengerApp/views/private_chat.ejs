@@ -101,18 +101,6 @@
             if (item.parentNode) {
                 item.parentNode.removeChild(item);
             }
-            // online.querySelectorAll('li').forEach(function(item) {
-            //     if (item.id == userName) {
-            //         //item.classList.add('hidden');
-            //         $(`#${userName}`).remove();
-            //     }
-            // });
-            // var items = online.getElementsByTagName("li");
-            // for(var i = items.length - 1; i >= 0; i--) {
-            //     if (items[i].textContent === userName) {
-            //         items[i].remove();
-            //     }
-            // }
         });
 
         socket.on('disconnect', function() {

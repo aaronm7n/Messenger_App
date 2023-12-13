@@ -4,6 +4,15 @@ body {
     background-color: #242526;
     font-family: courier;
 }
+.sidebar {
+    position: fixed;
+    background-color: #1f0f66;
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 .div-wrapper {
     position: fixed;
     background-color: #1f0f66;

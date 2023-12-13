@@ -95,6 +95,7 @@ io.on('connection', async (socket) => {
         if (socket.room != 'generalChat') {
             io.to(socket.room).emit('offline', `${socket.username}`);
             io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+            userOffline(socket.room, socket.roomCode, socket.username);
             socket.leave(socket.room)
         }
         else {
@@ -105,11 +106,11 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('joinRoom', async (room, roomCode, user) => {
-        const access = await (userAccess(room, roomCode, user));
-        console.log(access);
         socket.username = 'Annonymous'
         if (room != 'generalChat') {
             if (room != 'regGenChat') {
+                const access = await (userAccess(room, roomCode, user));
+                console.log(access);
                 if (access === true) {
                     console.log(`${socket.id} just joined the room ${room}`);
                     if (socket.room) {
@@ -117,8 +118,11 @@ io.on('connection', async (socket) => {
                     }
                     socket.join(room);
                     socket.room = room;
+                    socket.roomCode = roomCode;
                     socket.username = user;
                     io.to(socket.room).emit('chat message', `${socket.username} is now online!`);
+                    userOnline(room, roomCode, user);
+                    onlineUsers(socket, room, roomCode);
                     io.to(socket.room).emit('online', `${socket.username}`);
                     previousMessages(socket, `${room}`);//display previous messages in room
                 }
@@ -213,6 +217,32 @@ async function previousMessages(socket, room) {
         socket.emit('chat message', message.username + ": " + message.message)//displays message text
     })
 };
+
+async function onlineUsers(socket, room, roomCode) {
+    const currentRoom = await Room.findOne({ roomName: room, roomCode: roomCode }); //finds the room the user is currently in
+    //const currentUsers = currentRoom.onlineUserList;
+    currentRoom.onlineUserList.forEach(element => {
+        socket.emit('online', element);        
+    })
+}
+
+async function userOnline(room, roomCode, user){
+    const updatedRoom = await Room.findOneAndUpdate(
+        { "roomName": room, "roomCode": roomCode },
+        { $push: { onlineUserList: user } },
+        { new: true } // To return the updated document
+    );
+    await updatedRoom.save();
+}
+
+async function userOffline(room, roomCode, user){
+    const updatedRoom = await Room.findOneAndUpdate(
+        { "roomName": room, "roomCode": roomCode },
+        { $pull: { onlineUserList: user } },
+        { new: true } // To return the updated document
+    );
+    await updatedRoom.save();
+}
 
 async function userAccess(room, roomCode, user) {
     const userAccess = await Room.findOne({ roomName: room, roomCode, roomCode});
