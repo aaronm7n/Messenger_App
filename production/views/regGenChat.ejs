@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/regGenChat.css" />
+        <title>Private chat</title>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="sidebar" class="sidebar">
+            <p style='color: white'> Current User: </p>
+            <p id='userName' style='color: white'><%= uname %></p>
+        </div>
+        <em id="typing"></em>
+        <ul id="messages"></ul>
+        <form id="form" action="">
+            <input id="input" autocomplete="off" /><a class="home" href="/protected_page.js">Profile</a><button>Send</button>
+        </form>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+        const socket = io();
+        const typying = false;
+        const timeout = undefined;
+        
+        const typing = document.getElementById('typing')
+        const messages = document.getElementById('messages');
+        const input = document.getElementById('input');
+        const form = document.getElementById('form');
+        const userName = document.getElementById('userName');
+
+        socket.emit('joinRoom', 'regGenChat');
+        socket.username = userName.textContent;
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (input.value) {
+                socket.emit('chat message', input.value);
+                input.value = '';
+            }
+        });
+
+        // unfinished
+        input.addEventListener('keyup', function(e) {
+            e.preventDefault();
+            console.log('user is typing');
+            socket.emit('typing', (data));
+        });
+        
+        socket.on('chat message', function(msg) {
+            var item = document.createElement('li');
+            item.textContent = msg;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        // unfinished
+        socket.on('typing', function(data){
+            if (data) {
+                typing.innerHTML = `<p>${socket.username} is typing ... </p>`;
+            }
+        });
+        </script>
+    </body>
+</html>

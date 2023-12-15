@@ -13,8 +13,11 @@ const checkSignIn = (req, res, next) => {
     }
 }; 
 
-router.get('/', checkSignIn, (req, res) => {
-    res.sendFile('private_chat.html', { root: './views'});
+router.get('/', (req, res) => {
+    const username = req.session.user.username;
+    //console.log(username);
+    //res.sendFile(`private_chat.html?u=${username}`, { root: './views'});
+    res.render('private_chat.ejs', { uname: username });
 });
 
 // export this router to use in our index.js
