@@ -29,10 +29,11 @@
         const messages = document.getElementById('messages');
         const input = document.getElementById('input');
         const form = document.getElementById('form');
-        const userName = document.getElementById('userName');
+        const userName = document.getElementById('userName').textContent;
 
         socket.emit('joinRoom', 'regGenChat');
-        socket.username = userName.textContent;
+        socket.emit('userLog', userName);
+        
         
         form.addEventListener('submit', function(e) {
             e.preventDefault();

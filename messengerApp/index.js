@@ -93,10 +93,17 @@ io.on('connection', async (socket) => {
     socket.on('disconnect', () => {
         console.log('a user disconnected')
         if (socket.room != 'generalChat') {
-            io.to(socket.room).emit('offline', `${socket.username}`);
-            io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
-            userOffline(socket.room, socket.roomCode, socket.username);
-            socket.leave(socket.room)
+            if (socket.room != 'regGenChat') {
+                io.to(socket.room).emit('offline', `${socket.username}`);
+                io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+                userOffline(socket.room, socket.roomCode, socket.username);
+                socket.leave(socket.room)
+            }
+            else {
+                io.to(socket.room).emit('offline', `${socket.username}`);
+                io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+                socket.leave(socket.room)
+            }
         }
         else {
             io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now offline!`);
@@ -106,7 +113,6 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('joinRoom', async (room, roomCode, user) => {
-        socket.username = 'Annonymous'
         if (room != 'generalChat') {
             if (room != 'regGenChat') {
                 const access = await (userAccess(room, roomCode, user));
@@ -145,6 +151,7 @@ io.on('connection', async (socket) => {
             
         }
         else {
+            socket.username = 'Annonymous'
             console.log(`${socket.id} just joined the room ${room}`);
                 if (socket.room) {
                     socket.leave(socket.room)
@@ -169,6 +176,11 @@ io.on('connection', async (socket) => {
     socket.on('offline', (data) => {
         console.log(data);
     });
+
+    socket.on('userLog', (data) => {
+        console.log(data);
+        socket.username = data;
+    })
 
     socket.on('chat message', (msg) => {
         console.log(socket.room);
