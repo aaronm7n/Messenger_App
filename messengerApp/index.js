@@ -92,24 +92,26 @@ io.on('connection', async (socket) => {
 
     socket.on('disconnect', () => {
         console.log('a user disconnected')
-        if (socket.room != 'generalChat') {
-            if (socket.room != 'regGenChat') {
-                io.to(socket.room).emit('offline', `${socket.username}`);
-                io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
-                userOffline(socket.room, socket.roomCode, socket.username);
-                socket.leave(socket.room)
+        if (socket.room != null){
+            if (socket.room != 'generalChat') {
+                if (socket.room != 'regGenChat') {
+                    io.to(socket.room).emit('offline', `${socket.username}`);
+                    io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+                    userOffline(socket.room, socket.roomCode, socket.username);
+                    socket.leave(socket.room)
+                }
+                else {
+                    io.to(socket.room).emit('offline', `${socket.username}`);
+                    io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+                    socket.leave(socket.room)
+                }
             }
             else {
-                io.to(socket.room).emit('offline', `${socket.username}`);
-                io.to(socket.room).emit('chat message', `${socket.username} is now offline!`);
+                io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now offline!`);
+                
                 socket.leave(socket.room)
             }
-        }
-        else {
-            io.to(socket.room).emit('chat message', `Annonymous User ${socket.id} is now offline!`);
-            
-            socket.leave(socket.room)
-        }
+        }    
     });
 
     socket.on('joinRoom', async (room, roomCode, user) => {
